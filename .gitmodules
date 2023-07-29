@@ -1,0 +1,3 @@
+[submodule "projects/Vercel-simple-clone"]
+    path = projects/Vercel-simple-clone
+    url = https://github.com/Andrew53O/Vercel-Simple-Clone.git
