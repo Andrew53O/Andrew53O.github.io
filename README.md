@@ -1,3 +1,3 @@
-# Andrew53O.github.io
+[Vercel](https://www.vercel.com) Clone
 
-cpe form download = https://drive.google.com/file/d/1u3GAdhKPLVz0jTNmRgq8lRUZhKfzYY2N/view?usp=sharing
+Using basic Html, css and javascript
