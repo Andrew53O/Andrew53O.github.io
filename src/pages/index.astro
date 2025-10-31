@@ -2,26 +2,28 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import VideoCard from '../components/VideoCard.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
 import { videos, allTags } from '../data/videos';
 ---
 
 <Layout title="Andrew's Video Editing Portfolio">
+  <ThemeToggle />
   <Header />
   
   <main class="container mx-auto px-4 py-12 max-w-7xl">
     <!-- Filter Section -->
     <div class="mb-8">
-      <h2 class="text-2xl font-bold text-gray-800 mb-4">Filter by Tag</h2>
+      <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">Filter by Tag</h2>
       <div class="flex flex-wrap gap-2">
         <button 
-          class="filter-btn px-4 py-2 rounded-full font-medium transition-colors duration-200 bg-blue-600 text-white"
+          class="filter-btn px-4 py-2 rounded-full font-medium transition-colors duration-200 bg-blue-600 text-white dark:bg-blue-700"
           data-tag="all"
         >
           All
         </button>
         {allTags.map((tag) => (
           <button 
-            class="filter-btn px-4 py-2 rounded-full font-medium transition-colors duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300"
+            class="filter-btn px-4 py-2 rounded-full font-medium transition-colors duration-200 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600"
             data-tag={tag}
           >
             {tag}
@@ -39,14 +41,14 @@ import { videos, allTags } from '../data/videos';
 
     <!-- No results message -->
     <div id="no-results" class="hidden text-center py-12">
-      <p class="text-gray-500 text-lg">No videos found with the selected tag.</p>
+      <p class="text-gray-500 dark:text-gray-400 text-lg">No videos found with the selected tag.</p>
     </div>
   </main>
 
-  <footer class="bg-gray-800 text-white py-8 mt-16">
+  <footer class="bg-gray-800 dark:bg-gray-950 text-white py-8 mt-16">
     <div class="container mx-auto px-4 text-center">
       <p class="mb-2">&copy; {new Date().getFullYear()} Andrew. All rights reserved.</p>
-      <p class="text-gray-400">Professional Video Editing & Subtitle Services</p>
+      <p class="text-gray-400 dark:text-gray-500">Professional Video Editing & Subtitle Services</p>
     </div>
   </footer>
 
@@ -64,11 +66,11 @@ import { videos, allTags } from '../data/videos';
         // Update active button
         filterButtons.forEach(btn => {
           if (btn === button) {
-            btn.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
-            btn.classList.add('bg-blue-600', 'text-white');
+            btn.classList.remove('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-200', 'hover:bg-gray-300', 'dark:hover:bg-gray-600');
+            btn.classList.add('bg-blue-600', 'dark:bg-blue-700', 'text-white');
           } else {
-            btn.classList.remove('bg-blue-600', 'text-white');
-            btn.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+            btn.classList.remove('bg-blue-600', 'dark:bg-blue-700', 'text-white');
+            btn.classList.add('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-200', 'hover:bg-gray-300', 'dark:hover:bg-gray-600');
           }
         });
 
