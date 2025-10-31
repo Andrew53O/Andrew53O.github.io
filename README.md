@@ -96,6 +96,8 @@ Edit `src/data/videos.ts` to add or modify video entries:
 }
 ```
 
+**Note**: The example videos use placeholder URLs. Replace them with your actual video URLs before deployment.
+
 ### Styling
 
 - Global styles and Tailwind configuration: `tailwind.config.mjs`
@@ -108,6 +110,9 @@ Update the email address in `src/components/Header.astro`:
 ```astro
 <a href="mailto:your-email@example.com" ...>
 ```
+
+**Important**: Replace `contact@example.com` with your actual email address before deployment.
+
 
 ## 🚀 Deployment
 

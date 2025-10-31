@@ -1,7 +1,7 @@
 {
   "name": "andrew53o.github.io",
   "version": "1.0.0",
-  "description": "[Vercel](https://www.vercel.com) Clone",
+  "description": "Andrew's Video Editing Portfolio - Astro + Tailwind CSS",
   "main": "index.js",
   "scripts": {
     "dev": "astro dev",
