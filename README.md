@@ -4,16 +4,27 @@ A modern, responsive video editing portfolio website built with Astro and Tailwi
 
 ## 🚀 Features
 
+- **Coming Soon Landing Page**: Main page at `/` shows a coming soon message
+- **Video Portfolio**: Complete portfolio at `/editing` with video showcase
+- **Pricing Page**: Detailed pricing information at `/editing/pricing` in NTD (New Taiwan Dollar)
+- **Experience Page**: Portfolio stats and client success stories at `/editing/experience`
 - **Responsive Design**: Optimized for all devices - desktop, tablet, and mobile
-- **Light/Dark Mode**: Toggle between light and dark themes with persistent preference
+- **Dark Mode Default**: Starts in dark mode with toggle for light mode preference
 - **Admin Panel**: Decap CMS integration for easy content management at `/admin`
 - **Video Showcase**: Card-style grid layout displaying video projects with YouTube embeds
 - **Tag Filtering**: Interactive filtering system to browse videos by category
-- **Professional Header**: Introduction section highlighting skills and services
+- **Professional Navigation**: Site-wide navigation with mobile responsive menu
 - **Subtitle Services**: Prominently features multilingual subtitle generation (Chinese, English, Indonesian)
-- **CTA Button**: "Let's Talk" call-to-action linking to contact information
 - **Fast Performance**: Built with Astro for optimal loading speed
 - **Auto-deployment**: GitHub Actions workflow for seamless deployment to GitHub Pages
+
+## 🌐 Site Structure
+
+- `/` - Coming Soon landing page
+- `/editing` - Main video portfolio with filtering
+- `/editing/pricing` - Service pricing page
+- `/editing/experience` - Portfolio stats and client success stories
+- `/admin` - Content management system (Decap CMS)
 
 ## 📁 Project Structure
 
@@ -22,20 +33,26 @@ A modern, responsive video editing portfolio website built with Astro and Tailwi
 ├── public/
 │   ├── admin/
 │   │   ├── index.html       # Decap CMS admin interface
-│   │   └── config.yml       # CMS configuration
+│   │   ├── config.yml       # CMS configuration
+│   │   └── README.md        # CMS setup instructions
 │   └── favicon.svg          # Site favicon
 ├── src/
 │   ├── components/
 │   │   ├── Header.astro     # Hero section with intro and CTA
+│   │   ├── Navigation.astro # Site navigation with mobile menu
 │   │   ├── VideoCard.astro  # Individual video card component
-│   │   └── ThemeToggle.astro # Light/Dark mode toggle button
+│   │   └── ThemeToggle.astro # Dark/Light mode toggle button
 │   ├── content/
 │   │   ├── config.ts        # Content collections schema
 │   │   └── videos/          # Video content files (YAML)
 │   ├── layouts/
-│   │   └── Layout.astro     # Base HTML layout
+│   │   └── Layout.astro     # Base HTML layout (defaults to dark mode)
 │   └── pages/
-│       └── index.astro      # Main portfolio page with filtering logic
+│       ├── index.astro                # Coming Soon landing page
+│       └── editing/
+│           ├── index.astro            # Main portfolio page with filtering
+│           ├── pricing.astro          # Pricing page with NTD currency
+│           └── experience.astro       # Experience and success stories
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml       # GitHub Actions deployment workflow
@@ -113,12 +130,19 @@ Edit `src/data/videos.ts` to add or modify video entries:
 
 ### Contact Information
 
-Update the email address in `src/components/Header.astro`:
-```astro
-<a href="mailto:your-email@example.com" ...>
-```
+**⚠️ IMPORTANT**: Before deployment, replace all placeholder email addresses with your actual contact email:
 
-**Important**: Replace `contact@example.com` with your actual email address before deployment.
+Update the email address in the following files:
+- `src/components/Header.astro` (line 18)
+- `src/pages/editing/pricing.astro` (lines 122 and 170)
+- `src/pages/editing/experience.astro` (line 161)
+
+Search for `contact@example.com` and replace with your email address.
+
+```bash
+# Quick find and replace command:
+grep -r "contact@example.com" src/
+```
 
 
 ## 🚀 Deployment
@@ -164,12 +188,27 @@ npm run build
 
 ### Light/Dark Mode
 - Toggle button in top-right corner
-- Sun icon for light mode, moon icon for dark mode
+- Sun icon for dark mode, moon icon for light mode
+- **Defaults to dark mode** on first visit
 - Theme preference saved to browser localStorage
 - Smooth color transitions between themes
 - All components optimized for both modes
 
 ## 📝 Content Management
+
+### Decap CMS Setup
+
+**Important**: The Decap CMS requires additional OAuth setup to work with GitHub Pages. See `/public/admin/README.md` for detailed setup instructions.
+
+**Quick Summary of the Issue:**
+- Decap CMS on GitHub Pages needs OAuth authentication
+- Without OAuth setup, you'll see "Not Found" after login
+- Solutions include using Netlify, setting up an OAuth provider, or using test mode
+
+**Recommended Setup Options:**
+1. Deploy to Netlify (easiest - includes built-in OAuth)
+2. Use an external OAuth provider service
+3. Set up your own OAuth server
 
 ### Adding Videos One-by-One
 
