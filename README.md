@@ -5,6 +5,7 @@ A modern, responsive video editing portfolio website built with Astro and Tailwi
 ## 🚀 Features
 
 - **Responsive Design**: Optimized for all devices - desktop, tablet, and mobile
+- **Light/Dark Mode**: Toggle between light and dark themes with persistent preference
 - **Video Showcase**: Card-style grid layout displaying video projects with YouTube embeds
 - **Tag Filtering**: Interactive filtering system to browse videos by category
 - **Professional Header**: Introduction section highlighting skills and services
@@ -22,7 +23,8 @@ A modern, responsive video editing portfolio website built with Astro and Tailwi
 ├── src/
 │   ├── components/
 │   │   ├── Header.astro     # Hero section with intro and CTA
-│   │   └── VideoCard.astro  # Individual video card component
+│   │   ├── VideoCard.astro  # Individual video card component
+│   │   └── ThemeToggle.astro # Light/Dark mode toggle button
 │   ├── data/
 │   │   └── videos.ts        # Video data and configuration
 │   ├── layouts/
@@ -154,6 +156,70 @@ npm run build
 - Title and optional description
 - Tagged with relevant categories
 - Hover effects for better UX
+
+### Light/Dark Mode
+- Toggle button in top-right corner
+- Sun icon for light mode, moon icon for dark mode
+- Theme preference saved to browser localStorage
+- Smooth color transitions between themes
+- All components optimized for both modes
+
+## 📝 Content Management
+
+### Adding Videos One-by-One
+
+This portfolio uses a **file-based approach** for content management. Videos are stored in `src/data/videos.ts` as a TypeScript array. This approach is:
+
+**✅ Advantages:**
+- Simple and straightforward
+- No database required
+- Full version control with Git
+- No security vulnerabilities from admin panels
+- Perfect for portfolios with 10-50 videos
+- Changes deploy automatically via GitHub Actions
+
+**How to add a video:**
+1. Edit `src/data/videos.ts`
+2. Add a new video object to the array
+3. Commit and push to the `main` branch
+4. GitHub Actions automatically rebuilds and deploys
+
+**Example:**
+```typescript
+{
+  id: '7',
+  title: 'New Project Name',
+  description: 'Brief description of the project',
+  videoUrl: 'https://www.youtube.com/embed/VIDEO_ID',
+  tags: ['Corporate', 'English'],
+}
+```
+
+### Do You Need an Admin Panel?
+
+**For this use case: No, an admin panel is NOT recommended.**
+
+**Reasons:**
+1. **Small scale**: Adding videos one-by-one is manageable with file editing
+2. **Security**: Admin panels introduce authentication, database, and security concerns
+3. **Complexity**: Would require backend infrastructure (API, database, auth)
+4. **Cost**: Backend hosting costs vs. free GitHub Pages
+5. **Simplicity**: Current workflow is faster for small updates
+
+**When you WOULD need an admin panel:**
+- Managing 100+ videos with frequent updates
+- Multiple team members need to add content
+- Non-technical users need to manage content
+- Need features like draft/publish workflows
+- Want to update content from mobile devices
+
+**Alternative approaches if file editing becomes tedious:**
+- Use a **headless CMS** like Contentful, Sanity, or TinaCMS (with free tiers)
+- Create a **simple Google Sheets integration** to pull video data
+- Use **GitHub's web editor** to edit files directly in the browser
+- Set up **Netlify CMS** or **Decap CMS** for a lightweight admin interface
+
+For now, the file-based approach is the most efficient and cost-effective solution.
 
 ## 🌟 Unique Features
 
