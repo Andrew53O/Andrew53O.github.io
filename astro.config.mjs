@@ -6,4 +6,5 @@ export default defineConfig({
   site: 'https://andrew53o.github.io',
   integrations: [tailwind()],
   output: 'static',
+  trailingSlash: 'never',
 });
