@@ -1,0 +1,23 @@
+backend:
+  name: github
+  repo: Andrew53O/Andrew53O.github.io
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "videos"
+    label: "Videos"
+    folder: "src/content/videos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "ID", name: "id", widget: "string", hint: "Unique identifier for the video"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text", required: false, hint: "Short description of the video"}
+      - {label: "Video URL", name: "videoUrl", widget: "string", hint: "YouTube embed URL (e.g., https://www.youtube.com/embed/VIDEO_ID)"}
+      - {label: "Tags", name: "tags", widget: "list", hint: "Add tags like Corporate, English, Chinese, etc."}
+      - {label: "Thumbnail", name: "thumbnail", widget: "image", required: false, hint: "Optional custom thumbnail"}

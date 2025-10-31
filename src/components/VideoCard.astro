@@ -1,5 +1,12 @@
 ---
-import type { Video } from '../data/videos';
+interface Video {
+  id: string;
+  title: string;
+  description?: string;
+  videoUrl: string;
+  thumbnail?: string;
+  tags: string[];
+}
 
 interface Props {
   video: Video;
