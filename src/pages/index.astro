@@ -3,7 +3,11 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import VideoCard from '../components/VideoCard.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
-import { videos, allTags } from '../data/videos';
+import { getCollection } from 'astro:content';
+
+const videoEntries = await getCollection('videos');
+const videos = videoEntries.map(entry => entry.data);
+const allTags = Array.from(new Set(videos.flatMap(v => v.tags))).sort();
 ---
 
 <Layout title="Andrew's Video Editing Portfolio">
