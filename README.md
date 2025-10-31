@@ -130,12 +130,19 @@ Edit `src/data/videos.ts` to add or modify video entries:
 
 ### Contact Information
 
-Update the email address in `src/components/Header.astro`:
-```astro
-<a href="mailto:your-email@example.com" ...>
-```
+**⚠️ IMPORTANT**: Before deployment, replace all placeholder email addresses with your actual contact email:
 
-**Important**: Replace `contact@example.com` with your actual email address before deployment.
+Update the email address in the following files:
+- `src/components/Header.astro` (line 18)
+- `src/pages/editing/pricing.astro` (lines 122 and 170)
+- `src/pages/editing/experience.astro` (line 161)
+
+Search for `contact@example.com` and replace with your email address.
+
+```bash
+# Quick find and replace command:
+grep -r "contact@example.com" src/
+```
 
 
 ## 🚀 Deployment
