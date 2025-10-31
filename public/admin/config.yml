@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: Andrew53O/Andrew53O.github.io
   branch: main
+  # For GitHub Pages, users need to set up OAuth App in GitHub
+  # See: https://decapcms.org/docs/github-backend/
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
