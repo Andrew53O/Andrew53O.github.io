@@ -92,6 +92,11 @@ import LanguageToggle from '../../components/LanguageToggle.astro';
 <script>
   import { getDefaultLanguage, t, type Language } from '../../i18n/translations';
   
+  // ⚠️ SECURITY WARNING: This is a client-side only authentication demo.
+  // The password is visible in the client-side JavaScript bundle.
+  // For production use, implement proper server-side authentication.
+  // This is suitable for personal use only, not for protecting sensitive data.
+  
   // Simple password authentication (for demonstration only)
   // In production, use proper authentication with backend
   const ADMIN_PASSWORD = import.meta.env.PUBLIC_ADMIN_PASSWORD || 'admin123';
