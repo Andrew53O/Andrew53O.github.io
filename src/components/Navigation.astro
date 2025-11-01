@@ -22,56 +22,6 @@ const { currentPath = '/' } = Astro.props;
           >
             Home
           </a>
-          <a 
-            href="/editing" 
-            class={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-              currentPath === '/editing' 
-                ? 'bg-blue-600 text-white' 
-                : 'text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700'
-            }`}
-          >
-            Editing
-          </a>
-          <a 
-            href="/editing/portfolio" 
-            class={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-              currentPath === '/editing/portfolio' 
-                ? 'bg-blue-600 text-white' 
-                : 'text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700'
-            }`}
-          >
-            Portfolio
-          </a>
-          <a 
-            href="/editing/pricing" 
-            class={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-              currentPath === '/editing/pricing' 
-                ? 'bg-blue-600 text-white' 
-                : 'text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700'
-            }`}
-          >
-            Pricing
-          </a>
-          <a 
-            href="/editing/experience" 
-            class={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-              currentPath === '/editing/experience' 
-                ? 'bg-blue-600 text-white' 
-                : 'text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700'
-            }`}
-          >
-            Experience
-          </a>
-          <a 
-            href="/editing/contact" 
-            class={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-              currentPath === '/editing/contact' 
-                ? 'bg-blue-600 text-white' 
-                : 'text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700'
-            }`}
-          >
-            Contact
-          </a>
         </div>
       </div>
       <div class="md:hidden">
@@ -98,56 +48,6 @@ const { currentPath = '/' } = Astro.props;
         }`}
       >
         Home
-      </a>
-      <a 
-        href="/editing" 
-        class={`block px-3 py-2 rounded-md text-base font-medium ${
-          currentPath === '/editing' 
-            ? 'bg-blue-600 text-white' 
-            : 'text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700'
-        }`}
-      >
-        Editing
-      </a>
-      <a 
-        href="/editing/portfolio" 
-        class={`block px-3 py-2 rounded-md text-base font-medium ${
-          currentPath === '/editing/portfolio' 
-            ? 'bg-blue-600 text-white' 
-            : 'text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700'
-        }`}
-      >
-        Portfolio
-      </a>
-      <a 
-        href="/editing/pricing" 
-        class={`block px-3 py-2 rounded-md text-base font-medium ${
-          currentPath === '/editing/pricing' 
-            ? 'bg-blue-600 text-white' 
-            : 'text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700'
-        }`}
-      >
-        Pricing
-      </a>
-      <a 
-        href="/editing/experience" 
-        class={`block px-3 py-2 rounded-md text-base font-medium ${
-          currentPath === '/editing/experience' 
-            ? 'bg-blue-600 text-white' 
-            : 'text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700'
-        }`}
-      >
-        Experience
-      </a>
-      <a 
-        href="/editing/contact" 
-        class={`block px-3 py-2 rounded-md text-base font-medium ${
-          currentPath === '/editing/contact' 
-            ? 'bg-blue-600 text-white' 
-            : 'text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700'
-        }`}
-      >
-        Contact
       </a>
     </div>
   </div>

@@ -1,0 +1,154 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import EditingNavigation from '../../components/EditingNavigation.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import LanguageToggle from '../../components/LanguageToggle.astro';
+---
+
+<Layout title="Admin Panel - Andrew's Video Editing">
+  <ThemeToggle />
+  <LanguageToggle />
+  <EditingNavigation currentPath="/editing/admin" />
+  
+  <main class="min-h-screen">
+    <!-- Login Form (shown when not logged in) -->
+    <div id="login-section" class="container mx-auto px-4 py-16 max-w-md">
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+        <h1 class="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center" data-i18n="admin.login.title">Admin Login</h1>
+        <form id="login-form" class="space-y-4">
+          <div>
+            <label for="password" class="block text-gray-700 dark:text-gray-300 mb-2" data-i18n="admin.login.password">Password</label>
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-600 dark:bg-gray-700 dark:text-white"
+              required
+            />
+          </div>
+          <div id="error-message" class="hidden text-red-600 dark:text-red-400 text-sm" data-i18n="admin.login.error">
+            Invalid password
+          </div>
+          <button 
+            type="submit"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300"
+            data-i18n="admin.login.button"
+          >
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Admin Panel (shown when logged in) -->
+    <div id="admin-panel" class="hidden container mx-auto px-4 py-16 max-w-6xl">
+      <div class="flex justify-between items-center mb-8">
+        <h1 class="text-4xl font-bold text-gray-800 dark:text-white" data-i18n="admin.title">Admin Panel</h1>
+        <button 
+          id="logout-btn"
+          class="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-2 rounded-lg transition-colors duration-300"
+          data-i18n="admin.logout"
+        >
+          Logout
+        </button>
+      </div>
+
+      <!-- Portfolio Management -->
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-4" data-i18n="admin.portfolio.title">Manage Portfolio</h2>
+        <p class="text-gray-600 dark:text-gray-300">
+          Portfolio management functionality would go here. This includes adding, editing, and deleting video entries.
+        </p>
+        <div class="mt-4 p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
+          <p class="text-sm text-yellow-800 dark:text-yellow-200">
+            <strong>Note:</strong> To add/edit portfolio items, edit the YAML files in <code>src/content/videos/</code>
+          </p>
+        </div>
+      </div>
+
+      <!-- Experience Management -->
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-4" data-i18n="admin.experience.title">Manage Experience</h2>
+        <p class="text-gray-600 dark:text-gray-300">
+          Experience management functionality would go here. This includes adding, editing client success stories and testimonials.
+        </p>
+        <div class="mt-4 p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
+          <p class="text-sm text-yellow-800 dark:text-yellow-200">
+            <strong>Note:</strong> To add/edit experience items, edit the data in <code>src/pages/editing/experience.astro</code>
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-800 dark:bg-gray-950 text-white py-8 mt-16">
+    <div class="container mx-auto px-4 text-center">
+      <p class="mb-2">&copy; {new Date().getFullYear()} Andrew. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <p class="text-gray-400 dark:text-gray-500" data-i18n="footer.services">Professional Video Editing & Subtitle Services</p>
+    </div>
+  </footer>
+</Layout>
+
+<script>
+  import { getDefaultLanguage, t, type Language } from '../../i18n/translations';
+  
+  // Simple password authentication (for demonstration only)
+  // In production, use proper authentication with backend
+  const ADMIN_PASSWORD = import.meta.env.PUBLIC_ADMIN_PASSWORD || 'admin123';
+  
+  const loginSection = document.getElementById('login-section');
+  const adminPanel = document.getElementById('admin-panel');
+  const loginForm = document.getElementById('login-form') as HTMLFormElement;
+  const passwordInput = document.getElementById('password') as HTMLInputElement;
+  const errorMessage = document.getElementById('error-message');
+  const logoutBtn = document.getElementById('logout-btn');
+
+  // Check if already logged in
+  const isLoggedIn = sessionStorage.getItem('adminLoggedIn') === 'true';
+  
+  if (isLoggedIn) {
+    loginSection?.classList.add('hidden');
+    adminPanel?.classList.remove('hidden');
+  }
+
+  // Handle login
+  loginForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    if (passwordInput.value === ADMIN_PASSWORD) {
+      sessionStorage.setItem('adminLoggedIn', 'true');
+      loginSection?.classList.add('hidden');
+      adminPanel?.classList.remove('hidden');
+      errorMessage?.classList.add('hidden');
+    } else {
+      errorMessage?.classList.remove('hidden');
+    }
+  });
+
+  // Handle logout
+  logoutBtn?.addEventListener('click', () => {
+    sessionStorage.removeItem('adminLoggedIn');
+    adminPanel?.classList.add('hidden');
+    loginSection?.classList.remove('hidden');
+    passwordInput.value = '';
+    errorMessage?.classList.add('hidden');
+  });
+
+  // Update page content based on language
+  function updatePageContent() {
+    const lang: Language = (localStorage.getItem('language') as Language) || getDefaultLanguage();
+    
+    document.querySelectorAll('[data-i18n]').forEach((element) => {
+      const key = element.getAttribute('data-i18n');
+      if (key) {
+        element.textContent = t(key as any, lang);
+      }
+    });
+  }
+
+  // Update on page load
+  updatePageContent();
+
+  // Listen for language changes
+  window.addEventListener('languagechange', updatePageContent);
+</script>

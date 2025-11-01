@@ -1,7 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Navigation from '../../components/Navigation.astro';
+import EditingNavigation from '../../components/EditingNavigation.astro';
 import ThemeToggle from '../../components/ThemeToggle.astro';
+import LanguageToggle from '../../components/LanguageToggle.astro';
 import VideoCard from '../../components/VideoCard.astro';
 import { getCollection } from 'astro:content';
 
@@ -13,13 +14,14 @@ const sampleVideos = videos.slice(0, 3);
 
 <Layout title="Video Editing - Andrew">
   <ThemeToggle />
-  <Navigation currentPath="/editing" />
+  <LanguageToggle />
+  <EditingNavigation currentPath="/editing" />
   
   <!-- Hero Section -->
   <div class="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-800 dark:to-purple-900 text-white py-16">
     <div class="container mx-auto px-4 max-w-6xl text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Video Editing Services</h1>
-      <p class="text-lg md:text-xl max-w-3xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4" data-i18n="editing.hero.title">Video Editing Services</h1>
+      <p class="text-lg md:text-xl max-w-3xl mx-auto" data-i18n="editing.hero.description">
         Professional video editing with a creative touch. Transforming your footage into compelling stories.
       </p>
     </div>
@@ -29,19 +31,21 @@ const sampleVideos = videos.slice(0, 3);
     <!-- Overview Section -->
     <section class="mb-16">
       <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
-        <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">About My Video Editing</h2>
-        <p class="text-lg text-gray-600 dark:text-gray-300 mb-4">
+        <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-4" data-i18n="editing.about.title">About My Video Editing</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-300 mb-4" data-i18n="editing.about.p1">
           Hi, I'm Andrew! I'm a professional video editor specializing in creating compelling visual stories. 
           With expertise in corporate videos, brand storytelling, and social media content, I bring your vision 
           to life with precision and creativity.
         </p>
         <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
-          I offer professional subtitle generation services in <span class="font-semibold">Chinese, English, and Indonesian</span>, 
-          ensuring your content reaches a global audience with accuracy and cultural sensitivity.
+          <span data-i18n="editing.about.p2">I offer professional subtitle generation services in</span>
+          <span class="font-semibold" data-i18n="editing.about.languages">Chinese, English, and Indonesian</span><span data-i18n="editing.about.p2_end">, 
+          ensuring your content reaches a global audience with accuracy and cultural sensitivity.</span>
         </p>
         <a 
           href="/editing/portfolio" 
           class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300"
+          data-i18n="editing.about.cta"
         >
           View Full Portfolio →
         </a>
@@ -50,32 +54,33 @@ const sampleVideos = videos.slice(0, 3);
 
     <!-- Pricing Summary -->
     <section class="mb-16">
-      <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center">Pricing Overview</h2>
+      <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center" data-i18n="editing.pricing.title">Pricing Overview</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 text-center">
-          <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Basic</h3>
-          <p class="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">NT$3,000</p>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">per video (up to 5 mins)</p>
-          <p class="text-gray-600 dark:text-gray-300">Basic editing, color correction, and text overlays</p>
+          <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2" data-i18n="editing.pricing.basic">Basic</h3>
+          <p class="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2" data-i18n="editing.pricing.basic.price">NT$3,000</p>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="editing.pricing.basic.duration">per video (up to 5 mins)</p>
+          <p class="text-gray-600 dark:text-gray-300" data-i18n="editing.pricing.basic.description">Basic editing, color correction, and text overlays</p>
         </div>
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 text-center border-2 border-blue-600">
-          <div class="bg-blue-600 text-white text-sm font-semibold py-1 px-3 rounded-full inline-block mb-2">Most Popular</div>
-          <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Standard</h3>
-          <p class="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">NT$6,000</p>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">per video (up to 10 mins)</p>
-          <p class="text-gray-600 dark:text-gray-300">Advanced effects, motion graphics, and subtitles</p>
+          <div class="bg-blue-600 text-white text-sm font-semibold py-1 px-3 rounded-full inline-block mb-2" data-i18n="editing.pricing.popular">Most Popular</div>
+          <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2" data-i18n="editing.pricing.standard">Standard</h3>
+          <p class="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2" data-i18n="editing.pricing.standard.price">NT$6,000</p>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="editing.pricing.standard.duration">per video (up to 10 mins)</p>
+          <p class="text-gray-600 dark:text-gray-300" data-i18n="editing.pricing.standard.description">Advanced effects, motion graphics, and subtitles</p>
         </div>
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 text-center">
-          <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Premium</h3>
-          <p class="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">NT$12,000</p>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">per video (up to 20 mins)</p>
-          <p class="text-gray-600 dark:text-gray-300">Custom animations, advanced color grading, and priority support</p>
+          <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2" data-i18n="editing.pricing.premium">Premium</h3>
+          <p class="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2" data-i18n="editing.pricing.premium.price">NT$12,000</p>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="editing.pricing.premium.duration">per video (up to 20 mins)</p>
+          <p class="text-gray-600 dark:text-gray-300" data-i18n="editing.pricing.premium.description">Custom animations, advanced color grading, and priority support</p>
         </div>
       </div>
       <div class="text-center mt-6">
         <a 
           href="/editing/pricing" 
           class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300"
+          data-i18n="editing.pricing.cta"
         >
           View Full Pricing →
         </a>
@@ -84,26 +89,27 @@ const sampleVideos = videos.slice(0, 3);
 
     <!-- Experience Summary -->
     <section class="mb-16">
-      <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center">Experience Highlights</h2>
+      <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center" data-i18n="editing.experience.title">Experience Highlights</h2>
       <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
           <div class="text-center">
             <div class="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">150+</div>
-            <p class="text-gray-600 dark:text-gray-300">Projects Completed</p>
+            <p class="text-gray-600 dark:text-gray-300" data-i18n="editing.experience.projects">Projects Completed</p>
           </div>
           <div class="text-center">
             <div class="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">50+</div>
-            <p class="text-gray-600 dark:text-gray-300">Happy Clients</p>
+            <p class="text-gray-600 dark:text-gray-300" data-i18n="editing.experience.clients">Happy Clients</p>
           </div>
           <div class="text-center">
             <div class="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">3</div>
-            <p class="text-gray-600 dark:text-gray-300">Languages (Chinese, English, Indonesian)</p>
+            <p class="text-gray-600 dark:text-gray-300" data-i18n="editing.experience.languages.count">Languages (Chinese, English, Indonesian)</p>
           </div>
         </div>
         <div class="text-center">
           <a 
             href="/editing/experience" 
             class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300"
+            data-i18n="editing.experience.cta"
           >
             Learn More About My Experience →
           </a>
@@ -113,7 +119,7 @@ const sampleVideos = videos.slice(0, 3);
 
     <!-- Sample Portfolio -->
     <section class="mb-16">
-      <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center">Sample Work</h2>
+      <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center" data-i18n="editing.sample.title">Sample Work</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         {sampleVideos.map((video) => (
           <VideoCard video={video} />
@@ -123,6 +129,7 @@ const sampleVideos = videos.slice(0, 3);
         <a 
           href="/editing/portfolio" 
           class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300"
+          data-i18n="editing.sample.cta"
         >
           View Full Portfolio →
         </a>
@@ -132,13 +139,14 @@ const sampleVideos = videos.slice(0, 3);
     <!-- CTA Section -->
     <section class="text-center">
       <div class="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-800 dark:to-purple-900 rounded-lg p-8">
-        <h2 class="text-3xl font-bold text-white mb-4">Ready to Start Your Project?</h2>
-        <p class="text-white text-lg mb-6">
+        <h2 class="text-3xl font-bold text-white mb-4" data-i18n="editing.cta.title">Ready to Start Your Project?</h2>
+        <p class="text-white text-lg mb-6" data-i18n="editing.cta.description">
           Let's discuss how I can bring your video vision to life.
         </p>
         <a 
           href="/editing/contact" 
           class="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition-colors duration-300 shadow-lg"
+          data-i18n="editing.cta.button"
         >
           Let's Talk
         </a>
@@ -148,12 +156,13 @@ const sampleVideos = videos.slice(0, 3);
 
   <footer class="bg-gray-800 dark:bg-gray-950 text-white py-8 mt-16">
     <div class="container mx-auto px-4 text-center">
-      <p class="mb-2">&copy; {new Date().getFullYear()} Andrew. All rights reserved.</p>
-      <p class="text-gray-400 dark:text-gray-500">Professional Video Editing & Subtitle Services</p>
+      <p class="mb-2">&copy; {new Date().getFullYear()} Andrew. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <p class="text-gray-400 dark:text-gray-500" data-i18n="footer.services">Professional Video Editing & Subtitle Services</p>
       <div class="mt-4">
         <a 
           href="/editing/contact" 
           class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full transition-colors duration-300"
+          data-i18n="footer.contact"
         >
           Contact Us
         </a>
@@ -161,3 +170,25 @@ const sampleVideos = videos.slice(0, 3);
     </div>
   </footer>
 </Layout>
+
+<script>
+  import { getDefaultLanguage, t, type Language } from '../../i18n/translations';
+  
+  // Update page content based on language
+  function updatePageContent() {
+    const lang: Language = (localStorage.getItem('language') as Language) || getDefaultLanguage();
+    
+    document.querySelectorAll('[data-i18n]').forEach((element) => {
+      const key = element.getAttribute('data-i18n');
+      if (key) {
+        element.textContent = t(key as any, lang);
+      }
+    });
+  }
+
+  // Update on page load
+  updatePageContent();
+
+  // Listen for language changes
+  window.addEventListener('languagechange', updatePageContent);
+</script>
