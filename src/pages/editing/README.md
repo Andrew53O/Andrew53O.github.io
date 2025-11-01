@@ -49,10 +49,17 @@ The admin panel is located at `/editing/admin` and is protected by a password.
 
 **Default Password:** `admin123` (Change this in production!)
 
+**⚠️ SECURITY WARNING:** This admin panel uses client-side authentication for demonstration purposes only. The password is visible in the compiled JavaScript bundle. This is suitable for personal use to prevent casual access, but NOT for protecting sensitive data. For production use with sensitive data, implement proper server-side authentication.
+
 To change the password:
 1. Create a `.env` file in the root directory
 2. Add: `PUBLIC_ADMIN_PASSWORD=your_secure_password`
 3. Rebuild the site
+
+**Note:** Since this is a static site, true server-side authentication is not possible without additional backend infrastructure. Consider using:
+- GitHub OAuth for authentication
+- A serverless function (Netlify Functions, Vercel Functions) for authentication
+- A headless CMS with built-in authentication
 
 ### 📝 Managing Content
 
