@@ -47,6 +47,11 @@ This directory contains the video editing portfolio and services website, access
 
 The admin panel is located at `/editing/admin` and is protected by a password.
 
+**How to Access:**
+1. Navigate to `https://andrew53o.github.io/editing/admin` (or `http://localhost:4321/editing/admin` during development)
+2. Enter the password: `admin123` (default)
+3. Click "Login" (or "登入" in Chinese)
+
 **Default Password:** `admin123` (Change this in production!)
 
 **⚠️ SECURITY WARNING:** This admin panel uses client-side authentication for demonstration purposes only. The password is visible in the compiled JavaScript bundle. This is suitable for personal use to prevent casual access, but NOT for protecting sensitive data. For production use with sensitive data, implement proper server-side authentication.
