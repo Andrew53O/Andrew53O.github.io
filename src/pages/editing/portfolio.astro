@@ -1,9 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Navigation from '../../components/Navigation.astro';
+import EditingNavigation from '../../components/EditingNavigation.astro';
 import Header from '../../components/Header.astro';
 import VideoCard from '../../components/VideoCard.astro';
 import ThemeToggle from '../../components/ThemeToggle.astro';
+import LanguageToggle from '../../components/LanguageToggle.astro';
 import { getCollection } from 'astro:content';
 
 const videoEntries = await getCollection('videos');
@@ -13,25 +14,28 @@ const allTags = Array.from(new Set(videos.flatMap(v => v.tags))).sort();
 
 <Layout title="Full Portfolio - Andrew's Video Editing">
   <ThemeToggle />
-  <Navigation currentPath="/editing/portfolio" />
+  <LanguageToggle />
+  <EditingNavigation currentPath="/editing/portfolio" />
   
   <!-- Portfolio Header -->
   <div class="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-800 dark:to-purple-900 text-white py-12">
     <div class="container mx-auto px-4 max-w-6xl">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4 text-center">Video Editing Portfolio</h1>
-      <p class="text-lg md:text-xl mb-6 max-w-3xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 text-center" data-i18n="portfolio.title">Video Editing Portfolio</h1>
+      <p class="text-lg md:text-xl mb-6 max-w-3xl mx-auto text-center" data-i18n="portfolio.description">
         Hi, I'm Andrew! I'm a professional video editor specializing in creating compelling visual stories. 
         With expertise in corporate videos, brand storytelling, and social media content, I bring your vision to life 
         with precision and creativity.
       </p>
       <p class="text-md md:text-lg mb-6 max-w-2xl mx-auto text-center">
-        I offer professional subtitle generation services in <span class="font-semibold">Chinese, English, and Indonesian</span>, 
-        ensuring your content reaches a global audience with accuracy and cultural sensitivity.
+        <span data-i18n="portfolio.subtitle.description">I offer professional subtitle generation services in</span> 
+        <span class="font-semibold" data-i18n="editing.about.languages">Chinese, English, and Indonesian</span><span data-i18n="editing.about.p2_end">, 
+        ensuring your content reaches a global audience with accuracy and cultural sensitivity.</span>
       </p>
       <div class="text-center">
         <a 
           href="/editing/contact" 
           class="inline-block bg-white text-blue-600 dark:bg-gray-200 dark:text-blue-700 font-semibold px-8 py-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-300 transition-colors duration-300 shadow-lg"
+          data-i18n="editing.cta.button"
         >
           Let's Talk
         </a>
@@ -42,11 +46,12 @@ const allTags = Array.from(new Set(videos.flatMap(v => v.tags))).sort();
   <main class="container mx-auto px-4 py-12 max-w-7xl">
     <!-- Filter Section -->
     <div class="mb-8">
-      <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">Filter by Tag</h2>
+      <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4" data-i18n="portfolio.filter.title">Filter by Tag</h2>
       <div class="flex flex-wrap gap-2">
         <button 
           class="filter-btn px-4 py-2 rounded-full font-medium transition-colors duration-200 bg-blue-600 text-white dark:bg-blue-700"
           data-tag="all"
+          data-i18n="portfolio.filter.all"
         >
           All
         </button>
@@ -70,18 +75,19 @@ const allTags = Array.from(new Set(videos.flatMap(v => v.tags))).sort();
 
     <!-- No results message -->
     <div id="no-results" class="hidden text-center py-12">
-      <p class="text-gray-500 dark:text-gray-400 text-lg">No videos found with the selected tag.</p>
+      <p class="text-gray-500 dark:text-gray-400 text-lg" data-i18n="portfolio.no_results">No videos found with the selected tag.</p>
     </div>
   </main>
 
   <footer class="bg-gray-800 dark:bg-gray-950 text-white py-8 mt-16">
     <div class="container mx-auto px-4 text-center">
-      <p class="mb-2">&copy; {new Date().getFullYear()} Andrew. All rights reserved.</p>
-      <p class="text-gray-400 dark:text-gray-500">Professional Video Editing & Subtitle Services</p>
+      <p class="mb-2">&copy; {new Date().getFullYear()} Andrew. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <p class="text-gray-400 dark:text-gray-500" data-i18n="footer.services">Professional Video Editing & Subtitle Services</p>
       <div class="mt-4">
         <a 
           href="/editing/contact" 
           class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full transition-colors duration-300"
+          data-i18n="footer.contact"
         >
           Contact Us
         </a>
@@ -90,6 +96,8 @@ const allTags = Array.from(new Set(videos.flatMap(v => v.tags))).sort();
   </footer>
 
   <script>
+    import { getDefaultLanguage, t, type Language } from '../../i18n/translations';
+    
     // Filter functionality
     const filterButtons = document.querySelectorAll('.filter-btn');
     const videoCards = document.querySelectorAll('#video-grid > div');
@@ -135,5 +143,23 @@ const allTags = Array.from(new Set(videos.flatMap(v => v.tags))).sort();
         }
       });
     });
+
+    // Update page content based on language
+    function updatePageContent() {
+      const lang: Language = (localStorage.getItem('language') as Language) || getDefaultLanguage();
+      
+      document.querySelectorAll('[data-i18n]').forEach((element) => {
+        const key = element.getAttribute('data-i18n');
+        if (key) {
+          element.textContent = t(key as any, lang);
+        }
+      });
+    }
+
+    // Update on page load
+    updatePageContent();
+
+    // Listen for language changes
+    window.addEventListener('languagechange', updatePageContent);
   </script>
 </Layout>
