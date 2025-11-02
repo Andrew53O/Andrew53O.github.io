@@ -1,0 +1,15 @@
+id: "2"
+title: "Portfolio Website"
+description: "Modern portfolio website with video editing showcase"
+longDescription: "A dual-purpose portfolio website showcasing both software engineering and video editing work. Built with Astro for optimal performance and SEO, featuring dark mode, internationalization, and a CMS for easy content management."
+technologies:
+  - Astro
+  - TypeScript
+  - Tailwind CSS
+  - Decap CMS
+featured: true
+status: "completed"
+githubUrl: "https://github.com/Andrew53O/Andrew53O.github.io"
+liveUrl: "https://andrew53o.github.io"
+startDate: "2024-10"
+endDate: "2024-11"

@@ -1,0 +1,15 @@
+id: "1"
+title: "Vercel Simple Clone"
+description: "A simplified clone of Vercel's deployment platform"
+longDescription: "Built a deployment platform inspired by Vercel, featuring automatic deployments, preview URLs, and serverless functions. This project demonstrates full-stack development skills and cloud infrastructure knowledge."
+technologies:
+  - React
+  - Node.js
+  - Docker
+  - AWS
+featured: true
+status: "completed"
+githubUrl: "https://github.com/Andrew53O/Vercel-simple-clone"
+liveUrl: ""
+startDate: "2024-01"
+endDate: "2024-03"
