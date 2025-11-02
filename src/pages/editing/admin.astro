@@ -55,13 +55,70 @@ import LanguageToggle from '../../components/LanguageToggle.astro';
 
       <!-- Portfolio Management -->
       <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8">
-        <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-4" data-i18n="admin.portfolio.title">Manage Portfolio</h2>
-        <p class="text-gray-600 dark:text-gray-300">
-          Portfolio management functionality would go here. This includes adding, editing, and deleting video entries.
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-4" data-i18n="admin.portfolio.title">Manage Video Portfolio</h2>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+          Manage your video editing portfolio. Add, edit, and delete video entries through the CMS.
         </p>
-        <div class="mt-4 p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
-          <p class="text-sm text-yellow-800 dark:text-yellow-200">
-            <strong>Note:</strong> To add/edit portfolio items, edit the YAML files in <code>src/content/videos/</code>
+        <div class="flex gap-4 flex-wrap">
+          <a 
+            href="/admin"
+            target="_blank"
+            class="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300 inline-flex items-center gap-2"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            Open Video CMS
+          </a>
+          <a 
+            href="/editing/portfolio"
+            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300 inline-flex items-center gap-2"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+            View Portfolio
+          </a>
+        </div>
+        <div class="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+          <p class="text-sm text-blue-800 dark:text-blue-200">
+            <strong>Tip:</strong> Use the CMS to manage video content. Changes are saved to <code>src/content/videos/</code> and automatically deployed.
+          </p>
+        </div>
+      </div>
+
+      <!-- Projects Management -->
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">Manage Software Projects</h2>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+          Manage your software engineering projects. Add, edit, and showcase your technical work.
+        </p>
+        <div class="flex gap-4 flex-wrap">
+          <a 
+            href="/admin"
+            target="_blank"
+            class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300 inline-flex items-center gap-2"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+            Open Projects CMS
+          </a>
+          <a 
+            href="/projects"
+            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300 inline-flex items-center gap-2"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+            View Projects
+          </a>
+        </div>
+        <div class="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+          <p class="text-sm text-blue-800 dark:text-blue-200">
+            <strong>Tip:</strong> Use the CMS to add projects with details like technologies, GitHub links, and live demos. Projects are saved to <code>src/content/projects/</code>.
           </p>
         </div>
       </div>
@@ -69,12 +126,23 @@ import LanguageToggle from '../../components/LanguageToggle.astro';
       <!-- Experience Management -->
       <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
         <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-4" data-i18n="admin.experience.title">Manage Experience</h2>
-        <p class="text-gray-600 dark:text-gray-300">
-          Experience management functionality would go here. This includes adding, editing client success stories and testimonials.
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+          Manage your experience section including client success stories and testimonials.
         </p>
+        <div class="flex gap-4 flex-wrap">
+          <a 
+            href="/editing/experience"
+            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300 inline-flex items-center gap-2"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            View Experience Page
+          </a>
+        </div>
         <div class="mt-4 p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
           <p class="text-sm text-yellow-800 dark:text-yellow-200">
-            <strong>Note:</strong> To add/edit experience items, edit the data in <code>src/pages/editing/experience.astro</code>
+            <strong>Note:</strong> To edit experience items, modify the data in <code>src/pages/editing/experience.astro</code>
           </p>
         </div>
       </div>
