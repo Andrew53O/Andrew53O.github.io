@@ -4,6 +4,8 @@ import Navigation from '../components/Navigation.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
 import { getCollection } from 'astro:content';
 
+const MAX_DISPLAYED_TECHS = 4;
+
 const projects = await getCollection('projects');
 const sortedProjects = projects.sort((a, b) => {
   // Featured projects first
@@ -13,17 +15,20 @@ const sortedProjects = projects.sort((a, b) => {
   return (b.data.startDate || '').localeCompare(a.data.startDate || '');
 });
 
-const statusColors = {
+const statusColors: Record<string, string> = {
   'completed': 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
   'in-progress': 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
   'planned': 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200'
 };
 
-const statusLabels = {
+const statusLabels: Record<string, string> = {
   'completed': 'Completed',
   'in-progress': 'In Progress',
   'planned': 'Planned'
 };
+
+const getStatusColor = (status: string) => statusColors[status] || statusColors['completed'];
+const getStatusLabel = (status: string) => statusLabels[status] || 'Unknown';
 ---
 
 <Layout title="Projects - Andrew's Portfolio">
@@ -90,22 +95,22 @@ const statusLabels = {
 
                 {/* Technologies */}
                 <div class="flex flex-wrap gap-2 mb-4">
-                  {project.data.technologies.slice(0, 4).map((tech) => (
+                  {project.data.technologies.slice(0, MAX_DISPLAYED_TECHS).map((tech) => (
                     <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">
                       {tech}
                     </span>
                   ))}
-                  {project.data.technologies.length > 4 && (
+                  {project.data.technologies.length > MAX_DISPLAYED_TECHS && (
                     <span class="text-gray-500 dark:text-gray-400 text-xs px-2 py-1">
-                      +{project.data.technologies.length - 4} more
+                      +{project.data.technologies.length - MAX_DISPLAYED_TECHS} more
                     </span>
                   )}
                 </div>
 
                 {/* Status */}
                 <div class="mb-4">
-                  <span class={`inline-block text-xs font-semibold px-2 py-1 rounded ${statusColors[project.data.status]}`}>
-                    {statusLabels[project.data.status]}
+                  <span class={`inline-block text-xs font-semibold px-2 py-1 rounded ${getStatusColor(project.data.status)}`}>
+                    {getStatusLabel(project.data.status)}
                   </span>
                 </div>
 

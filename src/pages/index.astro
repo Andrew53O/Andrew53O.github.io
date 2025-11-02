@@ -4,8 +4,11 @@ import Navigation from '../components/Navigation.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
 import { getCollection } from 'astro:content';
 
+const MAX_FEATURED_PROJECTS = 3;
+const MAX_DISPLAYED_TECHS = 3;
+
 const allProjects = await getCollection('projects');
-const featuredProjects = allProjects.filter(p => p.data.featured).slice(0, 3);
+const featuredProjects = allProjects.filter(p => p.data.featured).slice(0, MAX_FEATURED_PROJECTS);
 ---
 
 <Layout title="Andrew - Portfolio">
@@ -65,7 +68,7 @@ const featuredProjects = allProjects.filter(p => p.data.featured).slice(0, 3);
                   </p>
                   
                   <div class="flex flex-wrap gap-2 mb-4">
-                    {project.data.technologies.slice(0, 3).map((tech) => (
+                    {project.data.technologies.slice(0, MAX_DISPLAYED_TECHS).map((tech) => (
                       <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">
                         {tech}
                       </span>
