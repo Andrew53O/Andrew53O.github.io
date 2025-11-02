@@ -4,27 +4,43 @@ A modern, responsive video editing portfolio website built with Astro and Tailwi
 
 ## 🚀 Features
 
-- **Coming Soon Landing Page**: Main page at `/` shows a coming soon message
+### Portfolio Features
+- **Dual Portfolio**: Showcase both software engineering projects and video editing work
+- **Software Projects Page**: Dedicated page at `/projects` displaying technical work with featured projects
 - **Video Portfolio**: Complete portfolio at `/editing` with video showcase
+- **Featured Projects**: Homepage displays up to 3 featured software projects
+- **Project Status**: Track projects as completed, in-progress, or planned
+- **Technology Tags**: Display technologies used in each project
+- **GitHub & Live Links**: Direct links to repository and live demos
+
+### Content Management
+- **Unified Admin Panel**: Manage both videos and projects at `/editing/admin`
+- **Decap CMS Integration**: GUI-based content management at `/admin`
+- **Content Collections**: Type-safe content with Astro Content Collections
+- **Auto-deployment**: GitHub Actions workflow for seamless deployment
+
+### Pages & Navigation
 - **Pricing Page**: Detailed pricing information at `/editing/pricing` in NTD (New Taiwan Dollar)
 - **Experience Page**: Portfolio stats and client success stories at `/editing/experience`
-- **Responsive Design**: Optimized for all devices - desktop, tablet, and mobile
-- **Dark Mode Default**: Starts in dark mode with toggle for light mode preference
-- **Admin Panel**: Decap CMS integration for easy content management at `/admin`
-- **Video Showcase**: Card-style grid layout displaying video projects with YouTube embeds
-- **Tag Filtering**: Interactive filtering system to browse videos by category
 - **Professional Navigation**: Site-wide navigation with mobile responsive menu
+- **Responsive Design**: Optimized for all devices - desktop, tablet, and mobile
+
+### Design & UX
+- **Dark Mode Default**: Starts in dark mode with toggle for light mode preference
+- **Tag Filtering**: Interactive filtering system to browse videos by category
+- **Card Layouts**: Modern card-style grid layouts for projects and videos
 - **Subtitle Services**: Prominently features multilingual subtitle generation (Chinese, English, Indonesian)
 - **Fast Performance**: Built with Astro for optimal loading speed
-- **Auto-deployment**: GitHub Actions workflow for seamless deployment to GitHub Pages
 
 ## 🌐 Site Structure
 
-- `/` - Coming Soon landing page
+- `/` - Portfolio homepage with featured projects
+- `/projects` - Software engineering projects showcase
 - `/editing` - Main video portfolio with filtering
 - `/editing/pricing` - Service pricing page
 - `/editing/experience` - Portfolio stats and client success stories
-- `/admin` - Content management system (Decap CMS)
+- `/editing/admin` - Admin panel for content management
+- `/admin` - Decap CMS interface (requires OAuth setup)
 
 ## 📁 Project Structure
 
@@ -196,6 +212,21 @@ npm run build
 
 ## 📝 Content Management
 
+### Admin Panel
+
+This portfolio includes a comprehensive admin panel for managing both video editing and software engineering content.
+
+**Access the Admin Panel:**
+- URL: `https://andrew53o.github.io/editing/admin`
+- Default Password: `admin123` (change in production via `.env`)
+- **Features**:
+  - Manage video portfolio
+  - Manage software engineering projects
+  - Quick links to CMS and preview pages
+  - Easy-to-use interface
+
+**See [ADMIN_GUIDE.md](./ADMIN_GUIDE.md) for complete documentation.**
+
 ### Decap CMS Setup
 
 **Important**: The Decap CMS requires additional OAuth setup to work with GitHub Pages. See `/public/admin/README.md` for detailed setup instructions.
@@ -210,9 +241,17 @@ npm run build
 2. Use an external OAuth provider service
 3. Set up your own OAuth server
 
-### Adding Videos One-by-One
+### Content Collections
 
-## 📝 Content Management
+The portfolio uses Astro Content Collections for type-safe content management:
+
+1. **Videos** (`src/content/videos/`) - Video editing portfolio
+2. **Projects** (`src/content/projects/`) - Software engineering projects
+
+Both collections can be managed via:
+- **Decap CMS** (`/admin`) - GUI interface (requires OAuth setup)
+- **Admin Panel** (`/editing/admin`) - Management dashboard with quick access
+- **Manual editing** - Edit YAML files directly
 
 ### Using the Admin Panel (Recommended)
 
