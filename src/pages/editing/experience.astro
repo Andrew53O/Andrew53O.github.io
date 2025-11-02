@@ -1,7 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Navigation from '../../components/Navigation.astro';
+import EditingNavigation from '../../components/EditingNavigation.astro';
 import ThemeToggle from '../../components/ThemeToggle.astro';
+import LanguageToggle from '../../components/LanguageToggle.astro';
 
 const stats = [
   {
@@ -88,7 +89,8 @@ const skills = [
 
 <Layout title="Experience - Andrew's Video Editing Portfolio">
   <ThemeToggle />
-  <Navigation currentPath="/editing/experience" />
+  <LanguageToggle />
+  <EditingNavigation currentPath="/editing/experience" />
   
   <main class="min-h-screen">
     <!-- Header -->
