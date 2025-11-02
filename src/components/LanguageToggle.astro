@@ -1,0 +1,45 @@
+---
+---
+
+<button 
+  id="language-toggle" 
+  class="fixed top-4 right-20 z-50 p-3 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+  aria-label="Toggle language"
+>
+  <span id="language-toggle-text" class="font-semibold text-gray-800 dark:text-white text-sm">
+    EN
+  </span>
+</button>
+
+<script>
+  import { getDefaultLanguage, type Language } from '../i18n/translations';
+  
+  const languageToggleBtn = document.getElementById('language-toggle');
+  const languageToggleText = document.getElementById('language-toggle-text');
+
+  // Initialize language from localStorage or default
+  let currentLanguage: Language = getDefaultLanguage();
+  
+  // Update button text
+  function updateButtonText(lang: Language) {
+    if (languageToggleText) {
+      languageToggleText.textContent = lang === 'en' ? 'EN' : '中';
+    }
+  }
+
+  // Set initial state
+  updateButtonText(currentLanguage);
+
+  languageToggleBtn?.addEventListener('click', () => {
+    // Toggle language
+    currentLanguage = currentLanguage === 'en' ? 'zh' : 'en';
+    localStorage.setItem('language', currentLanguage);
+    updateButtonText(currentLanguage);
+    
+    // Dispatch custom event for other components to listen to
+    window.dispatchEvent(new CustomEvent('languagechange', { detail: { language: currentLanguage } }));
+    
+    // Reload page to apply language changes
+    window.location.reload();
+  });
+</script>

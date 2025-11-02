@@ -4,16 +4,43 @@ A modern, responsive video editing portfolio website built with Astro and Tailwi
 
 ## 🚀 Features
 
+### Portfolio Features
+- **Dual Portfolio**: Showcase both software engineering projects and video editing work
+- **Software Projects Page**: Dedicated page at `/projects` displaying technical work with featured projects
+- **Video Portfolio**: Complete portfolio at `/editing` with video showcase
+- **Featured Projects**: Homepage displays up to 3 featured software projects
+- **Project Status**: Track projects as completed, in-progress, or planned
+- **Technology Tags**: Display technologies used in each project
+- **GitHub & Live Links**: Direct links to repository and live demos
+
+### Content Management
+- **Unified Admin Panel**: Manage both videos and projects at `/editing/admin`
+- **Decap CMS Integration**: GUI-based content management at `/admin`
+- **Content Collections**: Type-safe content with Astro Content Collections
+- **Auto-deployment**: GitHub Actions workflow for seamless deployment
+
+### Pages & Navigation
+- **Pricing Page**: Detailed pricing information at `/editing/pricing` in NTD (New Taiwan Dollar)
+- **Experience Page**: Portfolio stats and client success stories at `/editing/experience`
+- **Professional Navigation**: Site-wide navigation with mobile responsive menu
 - **Responsive Design**: Optimized for all devices - desktop, tablet, and mobile
-- **Light/Dark Mode**: Toggle between light and dark themes with persistent preference
-- **Admin Panel**: Decap CMS integration for easy content management at `/admin`
-- **Video Showcase**: Card-style grid layout displaying video projects with YouTube embeds
+
+### Design & UX
+- **Dark Mode Default**: Starts in dark mode with toggle for light mode preference
 - **Tag Filtering**: Interactive filtering system to browse videos by category
-- **Professional Header**: Introduction section highlighting skills and services
+- **Card Layouts**: Modern card-style grid layouts for projects and videos
 - **Subtitle Services**: Prominently features multilingual subtitle generation (Chinese, English, Indonesian)
-- **CTA Button**: "Let's Talk" call-to-action linking to contact information
 - **Fast Performance**: Built with Astro for optimal loading speed
-- **Auto-deployment**: GitHub Actions workflow for seamless deployment to GitHub Pages
+
+## 🌐 Site Structure
+
+- `/` - Portfolio homepage with featured projects
+- `/projects` - Software engineering projects showcase
+- `/editing` - Main video portfolio with filtering
+- `/editing/pricing` - Service pricing page
+- `/editing/experience` - Portfolio stats and client success stories
+- `/editing/admin` - Admin panel for content management
+- `/admin` - Decap CMS interface (requires OAuth setup)
 
 ## 📁 Project Structure
 
@@ -22,20 +49,26 @@ A modern, responsive video editing portfolio website built with Astro and Tailwi
 ├── public/
 │   ├── admin/
 │   │   ├── index.html       # Decap CMS admin interface
-│   │   └── config.yml       # CMS configuration
+│   │   ├── config.yml       # CMS configuration
+│   │   └── README.md        # CMS setup instructions
 │   └── favicon.svg          # Site favicon
 ├── src/
 │   ├── components/
 │   │   ├── Header.astro     # Hero section with intro and CTA
+│   │   ├── Navigation.astro # Site navigation with mobile menu
 │   │   ├── VideoCard.astro  # Individual video card component
-│   │   └── ThemeToggle.astro # Light/Dark mode toggle button
+│   │   └── ThemeToggle.astro # Dark/Light mode toggle button
 │   ├── content/
 │   │   ├── config.ts        # Content collections schema
 │   │   └── videos/          # Video content files (YAML)
 │   ├── layouts/
-│   │   └── Layout.astro     # Base HTML layout
+│   │   └── Layout.astro     # Base HTML layout (defaults to dark mode)
 │   └── pages/
-│       └── index.astro      # Main portfolio page with filtering logic
+│       ├── index.astro                # Coming Soon landing page
+│       └── editing/
+│           ├── index.astro            # Main portfolio page with filtering
+│           ├── pricing.astro          # Pricing page with NTD currency
+│           └── experience.astro       # Experience and success stories
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml       # GitHub Actions deployment workflow
@@ -113,12 +146,19 @@ Edit `src/data/videos.ts` to add or modify video entries:
 
 ### Contact Information
 
-Update the email address in `src/components/Header.astro`:
-```astro
-<a href="mailto:your-email@example.com" ...>
-```
+**⚠️ IMPORTANT**: Before deployment, replace all placeholder email addresses with your actual contact email:
 
-**Important**: Replace `contact@example.com` with your actual email address before deployment.
+Update the email address in the following files:
+- `src/components/Header.astro` (line 18)
+- `src/pages/editing/pricing.astro` (lines 122 and 170)
+- `src/pages/editing/experience.astro` (line 161)
+
+Search for `contact@example.com` and replace with your email address.
+
+```bash
+# Quick find and replace command:
+grep -r "contact@example.com" src/
+```
 
 
 ## 🚀 Deployment
@@ -164,16 +204,54 @@ npm run build
 
 ### Light/Dark Mode
 - Toggle button in top-right corner
-- Sun icon for light mode, moon icon for dark mode
+- Sun icon for dark mode, moon icon for light mode
+- **Defaults to dark mode** on first visit
 - Theme preference saved to browser localStorage
 - Smooth color transitions between themes
 - All components optimized for both modes
 
 ## 📝 Content Management
 
-### Adding Videos One-by-One
+### Admin Panel
 
-## 📝 Content Management
+This portfolio includes a comprehensive admin panel for managing both video editing and software engineering content.
+
+**Access the Admin Panel:**
+- URL: `https://andrew53o.github.io/editing/admin`
+- Default Password: `admin123` (change in production via `.env`)
+- **Features**:
+  - Manage video portfolio
+  - Manage software engineering projects
+  - Quick links to CMS and preview pages
+  - Easy-to-use interface
+
+**See [ADMIN_GUIDE.md](./ADMIN_GUIDE.md) for complete documentation.**
+
+### Decap CMS Setup
+
+**Important**: The Decap CMS requires additional OAuth setup to work with GitHub Pages. See `/public/admin/README.md` for detailed setup instructions.
+
+**Quick Summary of the Issue:**
+- Decap CMS on GitHub Pages needs OAuth authentication
+- Without OAuth setup, you'll see "Not Found" after login
+- Solutions include using Netlify, setting up an OAuth provider, or using test mode
+
+**Recommended Setup Options:**
+1. Deploy to Netlify (easiest - includes built-in OAuth)
+2. Use an external OAuth provider service
+3. Set up your own OAuth server
+
+### Content Collections
+
+The portfolio uses Astro Content Collections for type-safe content management:
+
+1. **Videos** (`src/content/videos/`) - Video editing portfolio
+2. **Projects** (`src/content/projects/`) - Software engineering projects
+
+Both collections can be managed via:
+- **Decap CMS** (`/admin`) - GUI interface (requires OAuth setup)
+- **Admin Panel** (`/editing/admin`) - Management dashboard with quick access
+- **Manual editing** - Edit YAML files directly
 
 ### Using the Admin Panel (Recommended)
 

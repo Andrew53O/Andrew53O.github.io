@@ -1,0 +1,154 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import EditingNavigation from '../../components/EditingNavigation.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import LanguageToggle from '../../components/LanguageToggle.astro';
+
+const contactMethods = [
+  {
+    name: 'LINE',
+    icon: `<svg class="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+    </svg>`,
+    description: 'Chat with me on LINE',
+    link: 'https://line.me/ti/p/~your-line-id',
+    color: 'from-green-400 to-green-600',
+    i18nName: 'contact.line.name',
+    i18nDesc: 'contact.line.description',
+  },
+  {
+    name: 'Facebook',
+    icon: `<svg class="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+    </svg>`,
+    description: 'Message me on Facebook',
+    link: 'https://facebook.com/your-facebook-profile',
+    color: 'from-blue-500 to-blue-700',
+    i18nName: 'contact.facebook.name',
+    i18nDesc: 'contact.facebook.description',
+  },
+  {
+    name: 'Email',
+    icon: `<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+    </svg>`,
+    description: 'Send me an email',
+    link: 'mailto:contact@example.com',
+    color: 'from-purple-500 to-purple-700',
+    i18nName: 'contact.email.name',
+    i18nDesc: 'contact.email.description',
+  },
+];
+---
+
+<Layout title="Contact - Andrew's Video Editing Services">
+  <ThemeToggle />
+  <LanguageToggle />
+  <EditingNavigation currentPath="/editing/contact" />
+  
+  <main class="min-h-screen">
+    <!-- Header -->
+    <div class="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-800 dark:to-purple-900 text-white py-16">
+      <div class="container mx-auto px-4 max-w-6xl text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4" data-i18n="contact.title">Let's Talk</h1>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto" data-i18n="contact.description">
+          Ready to start your next video project? Get in touch with me through any of these channels.
+        </p>
+      </div>
+    </div>
+
+    <!-- Contact Methods -->
+    <div class="container mx-auto px-4 py-16 max-w-5xl">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {contactMethods.map((method) => (
+          <a 
+            href={method.link}
+            target={method.name !== 'Email' ? '_blank' : undefined}
+            rel={method.name !== 'Email' ? 'noopener noreferrer' : undefined}
+            class="group"
+          >
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <div class={`bg-gradient-to-r ${method.color} h-48 flex items-center justify-center text-white`}>
+                <div set:html={method.icon} />
+              </div>
+              <div class="p-6 text-center">
+                <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" data-i18n={method.i18nName}>
+                  {method.name}
+                </h3>
+                <p class="text-gray-600 dark:text-gray-300" data-i18n={method.i18nDesc}>
+                  {method.description}
+                </p>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Additional Info -->
+      <div class="mt-16 bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 text-center">
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-4" data-i18n="contact.hours.title">Working Hours</h2>
+        <p class="text-gray-600 dark:text-gray-300 mb-2" data-i18n="contact.hours.weekday">
+          Monday - Friday: 9:00 AM - 6:00 PM (GMT+8)
+        </p>
+        <p class="text-gray-600 dark:text-gray-300" data-i18n="contact.hours.weekend">
+          Saturday - Sunday: By appointment
+        </p>
+        <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+          <p class="text-gray-600 dark:text-gray-300" data-i18n="contact.response.time">
+            I typically respond within 24 hours during business days.
+          </p>
+        </div>
+      </div>
+
+      <!-- Services Highlight -->
+      <div class="mt-12 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-800 dark:to-purple-900 rounded-lg p-8 text-center">
+        <h2 class="text-3xl font-bold text-white mb-4" data-i18n="contact.multilingual.title">Multilingual Subtitle Services</h2>
+        <p class="text-white text-lg mb-4">
+          <span data-i18n="contact.multilingual.description">Professional subtitle generation in</span> 
+          <span class="font-semibold" data-i18n="editing.about.languages">Chinese, English, and Indonesian</span>
+        </p>
+        <p class="text-white" data-i18n="contact.multilingual.p2">
+          Ensure your content reaches a global audience with accurate and culturally sensitive translations.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-800 dark:bg-gray-950 text-white py-8 mt-16">
+    <div class="container mx-auto px-4 text-center">
+      <p class="mb-2">&copy; {new Date().getFullYear()} Andrew. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <p class="text-gray-400 dark:text-gray-500" data-i18n="footer.services">Professional Video Editing & Subtitle Services</p>
+      <div class="mt-4">
+        <a 
+          href="/editing/contact" 
+          class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full transition-colors duration-300"
+          data-i18n="footer.contact"
+        >
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<script>
+  import { getDefaultLanguage, t, type Language } from '../../i18n/translations';
+  
+  // Update page content based on language
+  function updatePageContent() {
+    const lang: Language = (localStorage.getItem('language') as Language) || getDefaultLanguage();
+    
+    document.querySelectorAll('[data-i18n]').forEach((element) => {
+      const key = element.getAttribute('data-i18n');
+      if (key) {
+        element.textContent = t(key as any, lang);
+      }
+    });
+  }
+
+  // Update on page load
+  updatePageContent();
+
+  // Listen for language changes
+  window.addEventListener('languagechange', updatePageContent);
+</script>

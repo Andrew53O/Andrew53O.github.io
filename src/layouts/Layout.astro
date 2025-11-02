@@ -15,10 +15,18 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
     <script is:inline>
-      // Initialize theme from localStorage or default to light
-      const theme = localStorage.getItem('theme') || 'light';
+      // Initialize theme from localStorage or default to dark
+      const theme = localStorage.getItem('theme') || 'dark';
       if (theme === 'dark') {
         document.documentElement.classList.add('dark');
+      }
+      
+      // Set language attribute based on stored preference
+      const language = localStorage.getItem('language');
+      if (language === 'zh') {
+        document.documentElement.lang = 'zh-TW';
+      } else {
+        document.documentElement.lang = 'en';
       }
     </script>
   </head>

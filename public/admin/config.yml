@@ -2,8 +2,8 @@ backend:
   name: github
   repo: Andrew53O/Andrew53O.github.io
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
+  # For GitHub Pages, users need to set up OAuth App in GitHub
+  # See: https://decapcms.org/docs/github-backend/
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
@@ -21,3 +21,22 @@ collections:
       - {label: "Video URL", name: "videoUrl", widget: "string", hint: "YouTube embed URL (e.g., https://www.youtube.com/embed/VIDEO_ID)"}
       - {label: "Tags", name: "tags", widget: "list", hint: "Add tags like Corporate, English, Chinese, etc."}
       - {label: "Thumbnail", name: "thumbnail", widget: "image", required: false, hint: "Optional custom thumbnail"}
+  
+  - name: "projects"
+    label: "Software Projects"
+    folder: "src/content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "ID", name: "id", widget: "string", hint: "Unique identifier for the project"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text", hint: "Short description of the project"}
+      - {label: "Long Description", name: "longDescription", widget: "text", required: false, hint: "Detailed description of the project"}
+      - {label: "Technologies", name: "technologies", widget: "list", hint: "Technologies used (e.g., React, Node.js, Python)"}
+      - {label: "GitHub URL", name: "githubUrl", widget: "string", required: false, hint: "Link to GitHub repository"}
+      - {label: "Live URL", name: "liveUrl", widget: "string", required: false, hint: "Link to live demo or website"}
+      - {label: "Image", name: "image", widget: "image", required: false, hint: "Project screenshot or image"}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false, hint: "Show on homepage"}
+      - {label: "Status", name: "status", widget: "select", options: ["completed", "in-progress", "planned"], default: "completed"}
+      - {label: "Start Date", name: "startDate", widget: "string", required: false, hint: "YYYY-MM format"}
+      - {label: "End Date", name: "endDate", widget: "string", required: false, hint: "YYYY-MM format"}
