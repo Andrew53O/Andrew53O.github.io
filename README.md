@@ -106,12 +106,21 @@ cd Andrew53O.github.io
 npm install
 ```
 
-3. Start the development server:
+3. Configure environment variables (optional):
+```bash
+# Copy the example environment file
+cp .env.example .env
+
+# Edit .env and set your custom admin password
+# The .env file is already in .gitignore and won't be pushed to GitHub
+```
+
+4. Start the development server:
 ```bash
 npm run dev
 ```
 
-4. Open your browser and visit `http://localhost:4321`
+5. Open your browser and visit `http://localhost:4321`
 
 ## 📝 Available Scripts
 
@@ -211,6 +220,31 @@ npm run build
 - All components optimized for both modes
 
 ## 📝 Content Management
+
+### Admin Panel Configuration
+
+**Securing Your Admin Panel:**
+
+The admin panel password should be configured using environment variables to keep it secure:
+
+1. **Create your `.env` file**:
+   ```bash
+   cp .env.example .env
+   ```
+
+2. **Set a custom password** in `.env`:
+   ```
+   PUBLIC_ADMIN_PASSWORD=your_secure_password
+   ```
+
+3. **Security**: The `.env` file is automatically excluded from Git via `.gitignore`, so your password will never be pushed to GitHub.
+
+4. **Production deployment**: Set `PUBLIC_ADMIN_PASSWORD` as an environment variable in your hosting platform:
+   - **GitHub Actions**: Add to repository Secrets
+   - **Netlify/Vercel**: Add in environment variables settings
+   - **Other platforms**: See your hosting provider's documentation
+
+**See [ADMIN_GUIDE.md](./ADMIN_GUIDE.md) for complete setup instructions.**
 
 ### Admin Panel
 
