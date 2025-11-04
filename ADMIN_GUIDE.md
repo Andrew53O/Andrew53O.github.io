@@ -2,6 +2,49 @@
 
 This guide explains how to use the admin panel to manage both video editing portfolio and software engineering projects.
 
+## Environment Configuration (.env Setup)
+
+### Setting Up Your Admin Password
+
+The admin panel password is configured using environment variables to keep it secure.
+
+**Important**: The `.env` file is already excluded from version control via `.gitignore`, so your password will NOT be pushed to GitHub.
+
+#### Steps to Configure:
+
+1. **Copy the example file**:
+   ```bash
+   cp .env.example .env
+   ```
+
+2. **Edit the `.env` file** and set your custom password:
+   ```
+   PUBLIC_ADMIN_PASSWORD=your_secure_password_here
+   ```
+
+3. **Never commit `.env` to GitHub**: The `.gitignore` file already excludes `.env` and `.env.production`, so your password stays private on your local machine.
+
+4. **For production deployments**:
+   - **GitHub Pages**: Add the environment variable in your repository Settings → Secrets and variables → Actions
+   - **Netlify/Vercel**: Add environment variables in your deployment platform's dashboard
+   - **Other platforms**: Consult your hosting provider's documentation for setting environment variables
+
+#### How It Works:
+
+- The `.env.example` file contains a template with the default password (`admin123`)
+- You create your own `.env` file locally with your secure password
+- The `.env` file is ignored by Git (listed in `.gitignore`), so it never gets pushed to GitHub
+- For production, you set the environment variable through your hosting platform's interface
+- The application reads `PUBLIC_ADMIN_PASSWORD` from environment variables at build time
+
+#### Security Notes:
+
+⚠️ The admin panel uses client-side authentication, which means:
+- It's suitable for personal use and preventing casual access
+- The password is embedded in the JavaScript bundle after build
+- This is NOT secure for protecting highly sensitive data
+- For production with sensitive data, consider using GitHub OAuth or server-side authentication
+
 ## Accessing the Admin Panel
 
 ### Main Admin Panel
