@@ -63,12 +63,20 @@
     }
 
     .search-row {
+      position: relative;
       display: flex;
       gap: 10px;
     }
 
+    .search-box {
+      position: relative;
+      flex: 1;
+      min-width: 0;
+    }
+
     input {
       min-width: 0;
+      width: 100%;
       flex: 1;
       border: 1px solid #b8c2ba;
       border-radius: 8px;
@@ -76,6 +84,53 @@
       font-size: 1rem;
       background: #ffffff;
       color: #202124;
+    }
+
+    .suggestions {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      right: 0;
+      max-height: 260px;
+      overflow-y: auto;
+      border: 1px solid #cbd8cf;
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 12px 28px rgba(32, 33, 36, 0.14);
+      z-index: 10;
+    }
+
+    .suggestions.visible {
+      display: block;
+    }
+
+    .suggestion {
+      width: 100%;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      border: 0;
+      border-radius: 0;
+      padding: 10px 14px;
+      background: #ffffff;
+      color: #202124;
+      font: inherit;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .suggestion:hover,
+    .suggestion:focus-visible {
+      background: #eef4ef;
+      color: #17633a;
+    }
+
+    .suggestion-empty {
+      padding: 12px 14px;
+      color: #5f6368;
+      text-align: left;
     }
 
     button {
@@ -289,6 +344,10 @@
         display: grid;
       }
 
+      .search-box {
+        width: 100%;
+      }
+
       button {
         min-height: 48px;
       }
@@ -303,8 +362,10 @@
       <div class="search-panel">
         <label for="student-search">查詢出席紀錄 / Search attendance record</label>
         <div class="search-row">
-          <input id="student-search" list="student-options" autocomplete="off" placeholder="輸入你的學號 / Fill your Student ID">
-          <datalist id="student-options"></datalist>
+          <div class="search-box">
+            <input id="student-search" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="輸入學號，例如 B111020016 / Enter Student ID">
+            <div id="student-suggestions" class="suggestions" role="listbox" aria-label="Student ID suggestions"></div>
+          </div>
           <button id="search-button" type="button">查詢 / Search</button>
         </div>
         <p id="message" class="message" aria-live="polite"></p>
@@ -328,10 +389,11 @@
     const data = window.GEAE2347_ATTENDANCE_DATA || { dates: [], students: [] };
     const searchInput = document.querySelector("#student-search");
     const searchButton = document.querySelector("#search-button");
-    const options = document.querySelector("#student-options");
+    const suggestions = document.querySelector("#student-suggestions");
     const message = document.querySelector("#message");
     const result = document.querySelector("#result");
     const table = document.querySelector("#attendance-table");
+    const maxSuggestions = 10;
 
     const labels = {
       present: "出席 / Present",
@@ -373,10 +435,37 @@
       return String(value || "").split(" ")[0];
     }
 
-    function renderOptions() {
-      options.innerHTML = data.students
-        .map((student) => `<option value="${escapeHtml(student.id)}"></option>`)
+    function matchingStudents(query) {
+      const normalized = query.trim().toUpperCase();
+      if (!normalized) return [];
+      return data.students
+        .filter((student) => student.id.toUpperCase().startsWith(normalized))
+        .slice(0, maxSuggestions);
+    }
+
+    function hideSuggestions() {
+      suggestions.classList.remove("visible");
+      suggestions.innerHTML = "";
+    }
+
+    function renderSuggestions() {
+      const query = searchInput.value;
+      const matches = matchingStudents(query);
+      if (!query.trim()) {
+        hideSuggestions();
+        return;
+      }
+
+      if (!matches.length) {
+        suggestions.innerHTML = '<div class="suggestion-empty">沒有符合的學號 / No matching student ID</div>';
+        suggestions.classList.add("visible");
+        return;
+      }
+
+      suggestions.innerHTML = matches
+        .map((student) => `<button class="suggestion" type="button" role="option" data-id="${escapeHtml(student.id)}">${escapeHtml(student.id)}</button>`)
         .join("");
+      suggestions.classList.add("visible");
     }
 
     function renderTable() {
@@ -451,18 +540,39 @@
       }
 
       message.textContent = "";
+      hideSuggestions();
       renderStudent(student);
     }
 
+    searchInput.addEventListener("input", renderSuggestions);
+    searchInput.addEventListener("focus", renderSuggestions);
     searchInput.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
+        const firstSuggestion = suggestions.querySelector(".suggestion");
+        if (!findStudent(searchInput.value) && firstSuggestion) {
+          searchInput.value = firstSuggestion.dataset.id;
+        }
+        hideSuggestions();
         handleSearch();
       }
+      if (event.key === "Escape") {
+        hideSuggestions();
+      }
     });
-    searchInput.addEventListener("change", handleSearch);
+    suggestions.addEventListener("pointerdown", (event) => {
+      const option = event.target.closest(".suggestion");
+      if (!option) return;
+      searchInput.value = option.dataset.id;
+      hideSuggestions();
+      handleSearch();
+    });
+    document.addEventListener("pointerdown", (event) => {
+      if (!event.target.closest(".search-panel")) {
+        hideSuggestions();
+      }
+    });
     searchButton.addEventListener("click", handleSearch);
 
-    renderOptions();
     renderTable();
   </script>
 </body>
