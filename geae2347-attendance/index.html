@@ -167,6 +167,20 @@
       line-height: 1.5;
     }
 
+    .scroll-hint {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      min-height: 32px;
+      padding: 6px 10px;
+      border: 1px solid #cbd8cf;
+      border-radius: 8px;
+      background: #ffffff;
+      color: #35513f;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
     .table-wrap {
       overflow-x: auto;
       border: 1px solid #d6ded8;
@@ -201,9 +215,14 @@
     td:first-child {
       position: sticky;
       left: 0;
-      background: inherit;
       z-index: 2;
       font-weight: 700;
+      min-width: 128px;
+      box-shadow: 8px 0 12px rgba(32, 33, 36, 0.08);
+    }
+
+    td:first-child {
+      background: #ffffff;
     }
 
     th:first-child {
@@ -212,6 +231,10 @@
     }
 
     tr:nth-child(even) td {
+      background: #fbfcfb;
+    }
+
+    tr:nth-child(even) td:first-child {
       background: #fbfcfb;
     }
 
@@ -293,6 +316,7 @@
     <section class="table-section" aria-labelledby="table-title">
       <h2 id="table-title">全部出席紀錄 / All attendance records</h2>
       <p class="table-note">此頁只顯示學號與出席狀態，不公開姓名。/ This page shows only student IDs and attendance statuses.</p>
+      <p class="scroll-hint">向右滑動查看更多日期 / Swipe right to see more dates</p>
       <div class="table-wrap">
         <table id="attendance-table"></table>
       </div>
@@ -345,6 +369,10 @@
         .replaceAll("'", "&#039;");
     }
 
+    function displayDate(value) {
+      return String(value || "").split(" ")[0];
+    }
+
     function renderOptions() {
       options.innerHTML = data.students
         .map((student) => `<option value="${escapeHtml(student.id)}"></option>`)
@@ -354,7 +382,7 @@
     function renderTable() {
       const head = [
         "<thead><tr><th>學號 / Student ID</th>",
-        ...data.dates.map((date) => `<th>${escapeHtml(date)}</th>`),
+        ...data.dates.map((date) => `<th>${escapeHtml(displayDate(date))}</th>`),
         "</tr></thead>"
       ].join("");
 
@@ -380,7 +408,7 @@
       const cards = data.dates
         .map((date, index) => `
           <div class="status-card">
-            <span class="status-date">${escapeHtml(date)}</span>
+            <span class="status-date">${escapeHtml(displayDate(date))}</span>
             ${statusPill(student.records[index])}
           </div>
         `)

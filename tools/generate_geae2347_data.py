@@ -92,6 +92,10 @@ def find_header_index(headers: list[str], name: str) -> int:
     raise ValueError(f"Could not find required column: {name}")
 
 
+def display_date(header: str) -> str:
+    return header.split()[0] if " " in header else header
+
+
 def build_public_data(rows: list[list[str]], source_name: str) -> dict:
     if not rows:
         raise ValueError("Workbook does not contain any rows.")
@@ -108,7 +112,7 @@ def build_public_data(rows: list[list[str]], source_name: str) -> dict:
         ),
         len(headers),
     )
-    date_headers = headers[class_index + 1 : statistic_index]
+    date_headers = [display_date(header) for header in headers[class_index + 1 : statistic_index]]
     if not date_headers:
         raise ValueError("Could not find attendance date columns.")
 
