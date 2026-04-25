@@ -1,0 +1,573 @@
+[data-bs-theme=dark] {
+    color-scheme: dark;
+    --bs-body-color: #adb5bd;
+    --bs-body-color-rgb: 173,181,189;
+    --bs-body-bg: #212529;
+    --bs-body-bg-rgb: 33,37,41;
+    --bs-emphasis-color: #fff;
+    --bs-emphasis-color-rgb: 255,255,255;
+    --bs-secondary-color: rgba(173, 181, 189, 0.75);
+    --bs-secondary-color-rgb: 173,181,189;
+    --bs-secondary-bg: #343a40;
+    --bs-secondary-bg-rgb: 52,58,64;
+    --bs-tertiary-color: rgba(173, 181, 189, 0.5);
+    --bs-tertiary-color-rgb: 173,181,189;
+    --bs-tertiary-bg: #2b3035;
+    --bs-tertiary-bg-rgb: 43,48,53;
+    --bs-primary-text-emphasis: #6ea8fe;
+    --bs-secondary-text-emphasis: #a7acb1;
+    --bs-success-text-emphasis: #75b798;
+    --bs-info-text-emphasis: #6edff6;
+    --bs-warning-text-emphasis: #ffda6a;
+    --bs-danger-text-emphasis: #ea868f;
+    --bs-light-text-emphasis: #f8f9fa;
+    --bs-dark-text-emphasis: #dee2e6;
+    --bs-primary-bg-subtle: #031633;
+    --bs-secondary-bg-subtle: #161719;
+    --bs-success-bg-subtle: #051b11;
+    --bs-info-bg-subtle: #032830;
+    --bs-warning-bg-subtle: #332701;
+    --bs-danger-bg-subtle: #2c0b0e;
+    --bs-light-bg-subtle: #343a40;
+    --bs-dark-bg-subtle: #1a1d20;
+    --bs-primary-border-subtle: #084298;
+    --bs-secondary-border-subtle: #41464b;
+    --bs-success-border-subtle: #0f5132;
+    --bs-info-border-subtle: #087990;
+    --bs-warning-border-subtle: #997404;
+    --bs-danger-border-subtle: #842029;
+    --bs-light-border-subtle: #495057;
+    --bs-dark-border-subtle: #343a40;
+    --bs-heading-color: inherit;
+    --bs-link-color: #6ea8fe;
+    --bs-link-hover-color: #8bb9fe;
+    --bs-link-color-rgb: 110,168,254;
+    --bs-link-hover-color-rgb: 139,185,254;
+    --bs-code-color: #e685b5;
+    --bs-border-color: #495057;
+    --bs-border-color-translucent: rgba(255, 255, 255, 0.15);
+    --bs-form-valid-color: #75b798;
+    --bs-form-valid-border-color: #75b798;
+    --bs-form-invalid-color: #ea868f;
+    --bs-form-invalid-border-color: #ea868f;
+
+    --box-shadow-color: rgb(255, 255, 255)
+}
+
+
+html {
+    scroll-behaviour: smooth;
+    --nav-link-color: rgba(255, 255, 255, 0.65);
+}
+
+
+body {
+    padding-top: 65px;
+    background-color: black;
+
+}
+
+.navbar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 3;
+
+    background-color: black;
+}
+ /* style the vercel logo in the navbar */
+.navbar-brand {
+    width: 9%;
+
+}
+
+.nav-link {
+    color: var(--nav-link-color);
+}
+
+
+.nav-link:focus, .nav-link:hover {
+    color: white;
+    transition: color .1s ease;
+}
+
+
+.navbar-brand svg {
+    padding: 0.1rem !important;
+}
+
+/* svg image */
+.footer_vercel_path {
+    fill: #fff;
+
+}
+
+.dropdown-item
+{
+    width: 200px;
+
+}
+.dropdown-item:active
+{
+    width: 200px;
+    background-color: #394047;
+}
+
+.dropdown-menu {
+    --bs-dropdown-zindex: 1000;
+    --bs-dropdown-min-width: 10rem;
+    --bs-dropdown-padding-x: 0;
+    --bs-dropdown-padding-y: 0.5rem;
+    --bs-dropdown-spacer: 0.125rem;
+    --bs-dropdown-font-size: 1rem;
+    --bs-dropdown-color: var(--bs-body-color);
+    --bs-dropdown-bg: var(--bs-body-bg);
+    --bs-dropdown-border-color: var(--bs-border-color-translucent);
+    --bs-dropdown-border-radius: var(--bs-border-radius);
+    --bs-dropdown-border-width: var(--bs-border-width);
+    --bs-dropdown-inner-border-radius: calc(var(--bs-border-radius) - var(--bs-border-width));
+    --bs-dropdown-divider-bg: var(--bs-border-color-translucent);
+    --bs-dropdown-divider-margin-y: 0.5rem;
+    --bs-dropdown-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --bs-dropdown-link-color: var(--bs-body-color);
+    --bs-dropdown-link-hover-color: var(--bs-body-color);
+    --bs-dropdown-link-hover-bg: var(--bs-tertiary-bg);
+    --bs-dropdown-link-active-color: #fff;
+    --bs-dropdown-link-active-bg: #0d6efd;
+    --bs-dropdown-link-disabled-color: var(--bs-tertiary-color);
+    --bs-dropdown-item-padding-x: 1rem;
+    --bs-dropdown-item-padding-y: 0.25rem;
+    --bs-dropdown-header-color: #6c757d;
+    --bs-dropdown-header-padding-x: 1rem;
+    --bs-dropdown-header-padding-y: 0.5rem;
+    position: absolute;
+    z-index: var(--bs-dropdown-zindex);
+    display: none;
+    min-width: var(--bs-dropdown-min-width);
+    padding: var(--bs-dropdown-padding-y) var(--bs-dropdown-padding-x);
+    margin: 0;
+    font-size: var(--bs-dropdown-font-size);
+    color: var(--bs-dropdown-color);
+    text-align: left;
+    list-style: none;
+    background-color: var(--bs-dropdown-bg);
+    background-clip: padding-box;
+    border: var(--bs-dropdown-border-width) solid var(--bs-dropdown-border-color);
+    border-radius: var(--bs-dropdown-border-radius);
+}
+
+.dropdown-menu {
+    padding: 0;
+    border-radius: 0.5rem;
+}
+
+
+.dropdown-item {
+    padding: 0;
+}
+
+a.fill-div {
+    display: block; /* to make anchor tag paddin */
+    padding: 0.5rem 0;
+    padding-left: 1rem;
+
+    /* padding: 0.1rem 0.3rem; */
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    z-index: 2;
+
+}
+
+
+.fill-div li {
+    color: white;
+}
+
+.fill-div p {
+    color: grey;
+    padding: 0 !important;
+    margin: 0;
+    font-size: 10px;
+}
+
+.dropdown-item
+{
+    width: 200px;
+
+}
+.dropdown-item:active
+{
+    width: 200px;
+    background-color: #394047;
+}
+
+
+.contact {
+    text-decoration: none;
+}
+
+/* copy semua navbar dari index.html
+*/
+
+
+
+.dropdown-menu {
+    padding: 0;
+    border-radius: 0.5rem;
+}
+
+.dropdown-menu table tr th .dropdown-item li a {
+    text-decoration: none;
+}
+
+.dropdown-menu table tr th .dropdown-item li a:visited {
+    text-decoration: none;
+}
+
+.dropdown-menu table tr th .dropdown-item li a:hover {
+    text-decoration: none;
+}
+
+.dropdown-menu table tr th .dropdown-item li a:active {
+    text-decoration: none;
+}
+
+.dropdown-item {
+    padding: 0;
+}
+
+/* end of resuable nav link */
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.wrapper_title {
+    width: 100%;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.firstText {
+    display: flex;
+    max-width: 800px;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* buat text */
+
+    margin: 3rem 0;
+}
+
+.firstText h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 4rem;
+    letter-spacing: -3px;
+    color: white;
+}
+
+.benefits ul {
+    padding: 0;
+}
+svg {
+    stroke: black;
+    fill:white;
+}
+
+
+li {
+    list-style-type: none;
+}
+
+.three_prices {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    margin: 5rem 3rem;
+}
+.price {
+    position: relative;
+    border: 1px solid grey;
+    padding: 2rem 2rem;
+    padding-bottom: 7rem;
+
+    box-shadow: 0px 5px 10px 0px rgba(255,255,255,0.3);
+    border-radius: 5px;
+
+    margin-right: 2rem;
+
+
+    width: 350px;
+    height: 600px;
+}
+
+
+/* place the button */
+.button-container {
+
+    padding: 0.3rem 6rem;
+    padding-top: 0.7rem;
+    padding-left: 1rem;
+
+    border-radius: 0.4rem;
+    margin: 1rem 1rem;
+/*
+    font-size: 0.1rem; */
+    font-weight: bold;
+    text-decoration: none;
+    border-style: solid; /* NEED TO DECLARE THIS, since it default to none */
+    border-width: 1px;
+
+    position: absolute;
+    bottom: 0px;
+
+    text-align: left;
+
+    transition: all 500ms;
+
+
+}
+
+.button-container:hover {
+    color: black;
+    background-color: white;
+    transform: translateY(-3px) scale(1.1);
+}
+
+
+.price ul {
+    position: absolute;
+
+    top: 170px;
+}
+
+
+.button-container h5 {
+    font-size: 14px;
+}
+
+
+
+.black_bg {
+    color: white;
+    background-color: black;
+    border-color: white;
+}
+
+.white_bg  {
+    color: black;
+    background-color: white;
+    border-color: black;
+
+
+    /* using box shadow generator */
+    -webkit-box-shadow: 0px 0px 54px 17px rgba(255,255,255,0.27);
+    -moz-box-shadow: 0px 0px 54px 17px rgba(255,255,255,0.27);
+    box-shadow: 0px 0px 54px 17px rgba(255,255,255,0.25);
+}
+
+.white_bg:hover {
+    color: white;
+    background-color: black;
+    border-color: white;
+}
+
+
+/* text inside the price */
+
+
+.price .types {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.price .the_price {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.benefits {
+    margin-bottom: 3rem;
+}
+
+.benefits li {
+    margin-bottom: 10px;
+}
+
+.greyish {
+    color: hsla(0%, 0%, 93%);
+    line-height: 1.25rem;
+    font-weight: 200;
+    margin-bottom: 2rem;
+}
+
+/* two class in one element */
+.greyish.montly {
+    display: inline-flex;
+    margin-bottom: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: -1px;
+
+    margin-left: 5px;
+
+
+}
+
+.the_price {
+    display: inline-flex;
+}
+
+
+
+.most_popular {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+
+    /* move the point based on the element */
+    transform: translate(-50%, -50%);
+
+    border-radius: 2.3rem;
+    border: 0 solid black;
+    color: black;
+    background: linear-gradient(180deg,#fff,hsla(0,0%,100%,.75));
+    padding: 0.8rem 1rem;
+
+
+    font-weight: 700;
+    font-size: 1rem;
+
+    z-index: 2;
+}
+
+
+/* faq section */
+
+.faq {
+    display: flex;
+
+
+    flex-direction: column;
+
+    color: white;
+
+    /* Center a div */
+    width: 100%;
+    text-align: center;
+    align-text: center;
+    justify-content: center;
+
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+
+
+}
+
+
+.faq-title {
+    font-size: 3rem;
+    font-weight: 600;
+    /*  the color is in greyish font */
+}
+
+.faq-qa {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+
+}
+
+.faq-one_block {
+
+    border-top: 1px solid rgba(57, 57, 57, 1);
+    padding: 1.3rem 1rem;
+}
+
+.faq-one_block:last-child {
+    border-bottom: 1px solid rgba(57, 57, 57, 1);
+}
+
+
+
+.faq svg {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translateY(-50%);
+    stroke: white;
+    fill: none;
+}
+
+.faq_q {
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+.faq_q .icon.see_answer {
+    transform: rotate(180deg);
+}
+
+
+.faq_a {
+    max-height: 0px;
+    overflow: hidden;
+
+
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: rgba(237, 237, 237, 0.8);
+
+    margin-top: 0.5rem;
+    transition: max-height 0.3s ease;
+
+}
+
+.faq_a.see_answer {
+    max-height: 300px;
+    overflow: visible;
+
+    transition: max-height 1.4s ease;
+
+}
+
+.faq_a a {
+    color: #3291ff;
+}
+
+.faq_a a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+/* responsive web design */
+
+
+@media screen and (max-width: 960px)
+{
+    .wrapper_title{
+        font-size: 40px;
+        line-height: 56px;
+        margin-block: 80px;
+        color: red;
+    }
+}

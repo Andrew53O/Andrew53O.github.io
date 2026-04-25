@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+
+<html lang="en" data-bs-theme="dark" >
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <link href="pricing_style.css" rel="stylesheet">
+        <script src="pricing.js" defer>
+        </script>
+
+        <title>Vercel simplified</title>
+        <!-- defer to make wait until page run load-->
+    </head>
+    <body>
+
+        <!--Navbar-->
+        <!-- Navbar section-->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="../index.html">
+                <svg viewBox="0 0 283 64" class="footer_vercel_svg_logo">
+                  <path class="footer_vercel_path"d="M37 0l37 64H0L37 0zM159.6 34c0-10.3-7.6-17.5-18.5-17.5s-18.5 7.2-18.5 17.5c0 10.1 8.2 17.5 19.5 17.5 6.2 0 11.8-2.3 15.4-6.5l-6.8-3.9c-2.1 2.1-5.2 3.4-8.6 3.4-5 0-9.3-2.7-10.8-6.8l-.3-.7h28.3c.2-1 .3-2 .3-3zm-28.7-3l.2-.6c1.3-4.3 5.1-6.9 9.9-6.9 4.9 0 8.6 2.6 9.9 6.9l.2.6h-20.2zM267.3 34c0-10.3-7.6-17.5-18.5-17.5s-18.5 7.2-18.5 17.5c0 10.1 8.2 17.5 19.5 17.5 6.2 0 11.8-2.3 15.4-6.5l-6.8-3.9c-2.1 2.1-5.2 3.4-8.6 3.4-5 0-9.3-2.7-10.8-6.8l-.3-.7H267c.2-1 .3-2 .3-3zm-28.7-3l.2-.6c1.3-4.3 5.1-6.9 9.9-6.9 4.9 0 8.6 2.6 9.9 6.9l.2.6h-20.2zM219.3 28.3l6.8-3.9c-3.2-5-8.9-7.8-15.8-7.8-10.9 0-18.5 7.2-18.5 17.5s7.6 17.5 18.5 17.5c6.9 0 12.6-2.8 15.8-7.8l-6.8-3.9c-1.8 3-5 4.7-9 4.7-6.3 0-10.5-4.2-10.5-10.5s4.2-10.5 10.5-10.5c3.9 0 7.2 1.7 9 4.7zM282.3 5.6h-8v45h8v-45zM128.5 5.6h-9.2L101.7 36 84.1 5.6h-9.3L101.7 52l26.8-46.4zM185.1 25.8c.9 0 1.8.1 2.7.3v-8.5c-6.8.2-13.2 4-13.2 8.7v-8.7h-8v33h8V36.3c0-6.2 4.3-10.5 10.5-10.5z"></path>
+               </svg>
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Features
+                    </a>
+                    <ul class="dropdown-menu">
+                      <table>
+                        <tr>
+                          <th>
+                            <div class="dropdown-item">
+                              <a class="fill-div" href="../features/features.html">
+                                <li>Previews</li>
+                                  <p>Zero config, more innovation </p>
+                              </a>
+
+                            </div>
+                          </th>
+                          <th>
+                            <div class="dropdown-item">
+                              <a class="fill-div" href="../features/features.html#go_to_infrastructure">
+                                <li>Infrastructure</li>
+
+                                <p>Always fast, always online</p>
+                              </a>
+                            </div>
+                          </th>
+                        </tr>
+                        <tr>
+                          <th>
+                            <div class="dropdown-item">
+                              <a  class="fill-div" href="../features/features.html#next_js">
+                                <li>Next js</li>
+                                <p>The native Next.js platform</p>
+                              </a>
+
+                            </div>
+                          </th>
+                          <th>
+                            <div class="dropdown-item">
+                              <a class="fill-div" href="../features/features.html#go_to_edge_function">
+                                <li>Edge Functions</li>
+                                <p>Dynamic pages, static speed</p>
+                              </a>
+
+                            </div>
+                          </th>
+                        </tr>
+
+                        <tr>
+                          <th>
+                            <div class="dropdown-item">
+                              <a class="fill-div" href="../features/features.html#analytics">
+                                <li>Analytics</li>
+                                <p>Real-time insights, peak performance</p>
+                              </a>
+
+                            </div>
+                          </th>
+                          <th>
+                            <div class="dropdown-item">
+                              <a class="fill-div" href="../features/features.html#go_to_storage">
+                                <li>Storage</li>
+                                <p>Serverless storage for frontend</p>
+                              </a>
+
+                            </div>
+                          </th>
+                        </tr>
+
+                      </table>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../docs/docs.html">Docs</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="../templates/templates.html">Templates</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="../pricing/pricing.html">Pricing</a>
+                  </li>
+                </ul>
+
+                <a class="nav-link" href="../contacts/contact.html"> Contact</a>
+              </div>
+            </div>
+          </nav> <!-- End of Navbar-->
+
+        <!-- end Navbar-->
+
+        <div class="wrapper_title">
+          <div class="firstText">
+            <h1> Find a plan to power your projects </h1>
+
+          </div>
+        </div> <!-- end of wrapper title-->
+
+        <div class="wrapper_price">
+          <div class="three_prices">
+
+            <!-- 1 price-->
+            <div class="price">
+              <div class="types">
+                Hobby
+              </div>
+
+              <div class="the_price">
+                $0
+              </div>
+
+              <div class="description greyish">
+                Start your next side project
+              </div>
+
+              <div class="benefits">
+                <ul>
+                  <li>
+                    <svg class="icon" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="width:20px;height:20px">
+                      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill="var(--geist-fill)" stroke="var(--geist-fill)">
+                      </path>
+                      <path d="M8 11.8571L10.5 14.3572L15.8572 9" fill="none" stroke="var(--geist-stroke)">
+                      </path>
+                    </svg>
+
+                    Support for 35+ Frameworks
+                  </li>
+                  <li>
+                    <svg class="icon" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="width:20px;height:20px">
+                      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill="var(--geist-fill)" stroke="var(--geist-fill)">
+                      </path>
+                      <path d="M8 11.8571L10.5 14.3572L15.8572 9" fill="none" stroke="var(--geist-stroke)">
+                      </path>
+                    </svg>
+                    Fast Globally (Edge Network)
+                  </li>
+                  <li>
+                    <svg class="icon" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="width:20px;height:20px">
+                      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill="var(--geist-fill)" stroke="var(--geist-fill)">
+                      </path>
+                      <path d="M8 11.8571L10.5 14.3572L15.8572 9" fill="none" stroke="var(--geist-stroke)">
+                      </path>
+                    </svg>
+                    Automatic CI/CD (Git Integration)
+                  </li>
+
+                  <li>
+                    <svg class="icon" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="width:20px;height:20px">
+                      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill="var(--geist-fill)" stroke="var(--geist-fill)">
+                      </path>
+                      <path d="M8 11.8571L10.5 14.3572L15.8572 9" fill="none" stroke="var(--geist-stroke)">
+                      </path>
+                    </svg>
+                    Functions (Serverless, Edge)
+                  </li>
+
+                  <li>
+                    <svg class="icon" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="width:20px;height:20px">
+                      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill="var(--geist-fill)" stroke="var(--geist-fill)">
+                      </path>
+                      <path d="M8 11.8571L10.5 14.3572L15.8572 9" fill="none" stroke="var(--geist-stroke)">
+                      </path>
+                    </svg>
+                    Starter Database (KV, Postgres)
+                  </li>
+                  <li>
+                    <svg class="icon" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="width:20px;height:20px">
+                      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill="var(--geist-fill)" stroke="var(--geist-fill)">
+                      </path>
+                      <path d="M8 11.8571L10.5 14.3572L15.8572 9" fill="none" stroke="var(--geist-stroke)">
+                      </path>
+                    </svg>
+                    Web Analytics
+                  </li>
+
+                  <li>
+                    <svg class="icon" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="width:20px;height:20px">
+                      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill="var(--geist-fill)" stroke="var(--geist-fill)">
+                      </path>
+                      <path d="M8 11.8571L10.5 14.3572L15.8572 9" fill="none" stroke="var(--geist-stroke)">
+                      </path>
+                    </svg>
+                    Community Support
+                  </li>
+
+                  <!-- button type black-->
+
+                </ul>
+              </div> <!-- end of benefits-->
+
+              <!-- The button -->
+              <div class="button_type_black">
+
+                <a href="https://vercel.com/new">
+                  <div class="button-container black_bg">
+                    <h5>Start deploying</h5>
+                  </div>
+
+                </a>
+
+
+              </div>
+
+            </div> <!-- end of price 1-->
+
+
+
+
+            <!-- price 2-->
+            <div class="price ">
+
+              <!-- most popular label-->
+              <div class="most_popular">
+                Most popular
+
+              </div>
+
+
+              <div class="types">
+                Pro
+              </div>
+
+              <div class="the_price">
+                $20
+              </div>
+
+              <div class="description greyish montly">
+                per user / month
+              </div>
+
+              <div class="description greyish">
+                Everything in Hobby, plus higher limits and team features
+              </div>
+
+              <div class="benefits">
+                <ul>
+                  <li>
+                    <svg class="icon" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="width:20px;height:20px">
+                      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill="var(--geist-fill)" stroke="var(--geist-fill)">
+                      </path>
+                      <path d="M8 11.8571L10.5 14.3572L15.8572 9" fill="none" stroke="var(--geist-stroke)">
+                      </path>
+                    </svg>
+
+                    Unlimited Environments
+                  </li>
+                  <li>
+                    <svg class="icon" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="width:20px;height:20px">
+                      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill="var(--geist-fill)" stroke="var(--geist-fill)">
+                      </path>
+                      <path d="M8 11.8571L10.5 14.3572L15.8572 9" fill="none" stroke="var(--geist-stroke)">
+                      </path>
+                    </svg>
+                    More Functions (Serverless, Edge)
+                  </li>
+                  <li>
+                    <svg class="icon" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="width:20px;height:20px">
+                      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill="var(--geist-fill)" stroke="var(--geist-fill)">
+                      </path>
+                      <path d="M8 11.8571L10.5 14.3572L15.8572 9" fill="none" stroke="var(--geist-stroke)">
+                      </path>
+                    </svg>
+                    More Databases (KV, Postgres)
+                  </li>
+
+                  <li>
+                    <svg class="icon" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="width:20px;height:20px">
+                      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill="var(--geist-fill)" stroke="var(--geist-fill)">
+                      </path>
+                      <path d="M8 11.8571L10.5 14.3572L15.8572 9" fill="none" stroke="var(--geist-stroke)">
+                      </path>
+                    </svg>
+                    More Analytics
+                  </li>
+
+                  <li>
+                    <svg class="icon" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="width:20px;height:20px">
+                      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill="var(--geist-fill)" stroke="var(--geist-fill)">
+                      </path>
+                      <path d="M8 11.8571L10.5 14.3572L15.8572 9" fill="none" stroke="var(--geist-stroke)">
+                      </path>
+                    </svg>
+                    More Experimentation (Edge Config, Middleware)
+                  </li>
+                  <li>
+                    <svg class="icon" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="width:20px;height:20px">
+                      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill="var(--geist-fill)" stroke="var(--geist-fill)">
+                      </path>
+                      <path d="M8 11.8571L10.5 14.3572L15.8572 9" fill="none" stroke="var(--geist-stroke)">
+                      </path>
+                    </svg>
+                    Preview/Comment/Edit Deployments
+                  </li>
+
+                  <li>
+                    <svg class="icon" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="width:20px;height:20px">
+                      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill="var(--geist-fill)" stroke="var(--geist-fill)">
+                      </path>
+                      <path d="M8 11.8571L10.5 14.3572L15.8572 9" fill="none" stroke="var(--geist-stroke)">
+                      </path>
+                    </svg>
+                    Basic DDoS Mitigation
+                  </li>
+
+                  <li>
+                    <svg class="icon" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="width:20px;height:20px">
+                      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill="var(--geist-fill)" stroke="var(--geist-fill)">
+                      </path>
+                      <path d="M8 11.8571L10.5 14.3572L15.8572 9" fill="none" stroke="var(--geist-stroke)">
+                      </path>
+                    </svg>
+                    Email Support
+                  </li>
+
+
+                </ul>
+              </div> <!-- end of benefits-->
+
+              <!-- button type black-->
+              <div class="button_type_black">
+
+                <a href="https://vercel.com/signup?plan=pro&next=/dashboard">
+                  <div class="button-container white_bg">
+                    <h5>Start a free trial</h5>
+                  </div>
+                </a>
+              </div>
+
+            </div> <!-- end of price 2-->
+
+            <!-- price 3-->
+            <div class="price">
+              <div class="types">
+                Enterprise
+              </div>
+
+              <div class="the_price">
+                Custom
+              </div>
+
+              <div class="description greyish">
+                For teams with more security, support, and performance needs.
+              </div>
+
+              <div class="benefits">
+                <ul>
+                  <li>
+                    <svg class="icon" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="width:20px;height:20px">
+                      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill="var(--geist-fill)" stroke="var(--geist-fill)">
+                      </path>
+                      <path d="M8 11.8571L10.5 14.3572L15.8572 9" fill="none" stroke="var(--geist-stroke)">
+                      </path>
+                    </svg>
+
+                    99.99% SLA
+                  </li>
+                  <li>
+                    <svg class="icon" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="width:20px;height:20px">
+                      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill="var(--geist-fill)" stroke="var(--geist-fill)">
+                      </path>
+                      <path d="M8 11.8571L10.5 14.3572L15.8572 9" fill="none" stroke="var(--geist-stroke)">
+                      </path>
+                    </svg>
+                    IP Allow & Block Rules
+                  </li>
+                  <li>
+                    <svg class="icon" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="width:20px;height:20px">
+                      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill="var(--geist-fill)" stroke="var(--geist-fill)">
+                      </path>
+                      <path d="M8 11.8571L10.5 14.3572L15.8572 9" fill="none" stroke="var(--geist-stroke)">
+                      </path>
+                    </svg>
+                    Isolated Builds & Deployments
+                  </li>
+
+                  <li>
+                    <svg class="icon" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="width:20px;height:20px">
+                      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill="var(--geist-fill)" stroke="var(--geist-fill)">
+                      </path>
+                      <path d="M8 11.8571L10.5 14.3572L15.8572 9" fill="none" stroke="var(--geist-stroke)">
+                      </path>
+                    </svg>
+                    Additional Role & Access Controls
+                  </li>
+
+                  <li>
+                    <svg class="icon" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="width:20px;height:20px">
+                      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill="var(--geist-fill)" stroke="var(--geist-fill)">
+                      </path>
+                      <path d="M8 11.8571L10.5 14.3572L15.8572 9" fill="none" stroke="var(--geist-stroke)">
+                      </path>
+                    </svg>
+                    High-Performance Edge Network
+                  </li>
+                  <li>
+                    <svg class="icon" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="width:20px;height:20px">
+                      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill="var(--geist-fill)" stroke="var(--geist-fill)">
+                      </path>
+                      <path d="M8 11.8571L10.5 14.3572L15.8572 9" fill="none" stroke="var(--geist-stroke)">
+                      </path>
+                    </svg>
+                    SAML Single-Sign-On (SSO)
+                  </li>
+
+                  <li>
+                    <svg class="icon" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="width:20px;height:20px">
+                      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill="var(--geist-fill)" stroke="var(--geist-fill)">
+                      </path>
+                      <path d="M8 11.8571L10.5 14.3572L15.8572 9" fill="none" stroke="var(--geist-stroke)">
+                      </path>
+                    </svg>
+                    Advanced DDoS Mitigation
+                  </li>
+
+                  <!-- button type black-->
+
+                </ul>
+              </div> <!-- end of benefits-->
+
+              <!-- the button -->
+              <div class="button_type_black">
+
+                <a href="../contacts/contact.html">
+                  <div class="button-container black_bg">
+                    <h5>Contact Sales</h5>
+                  </div>
+
+                </a>
+
+
+              </div>
+
+            </div> <!-- end of price 3-->
+
+
+          </div>  <!-- end of 3 prices-->
+
+        </div> <!-- end of wrapper price-->
+
+
+        <!-- start of faq-->
+        <div class="faq">
+
+          <div class="faq-title greyish">
+            FAQs
+          </div>
+
+          <div class="faq-qa">
+
+            <!-- start of the first block-->
+            <div class="faq-one_block">
+              <div class="faq_q">
+                Which Vercel plan is right for me?
+
+                <svg class="icon" height="24"  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+
+              </div>
+
+              <div class="faq_a">
+                Our Hobby plan is for personal,
+                non-commercial use. Pro is for small
+                teams with moderate bandwidth and
+                collaboration requirements.
+                Enterprise is for teams seeking
+                greater performance, collaboration,
+                and security.
+                <a href="../contacts/contact.html">
+                  Contact our sales team
+                </a> to
+                learn more.
+              </div>
+
+            </div> <!-- end of first block-->
+
+            <!-- start of the second block-->
+            <div class="faq-one_block">
+              <div class="faq_q">
+                Do you offer custom invoicing?
+                <svg class="icon" height="24"  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </div>
+
+              <div class="faq_a">
+                Yes, we offer custom invoicing for
+                Enterprise customers.
+                <a href="../contacts/contact.html">
+                Contact our sales team
+                </a> to learn more.
+
+              </div>
+            </div>
+            <!--end of second block-->
+
+
+             <!-- start of the third block-->
+             <div class="faq-one_block">
+              <div class="faq_q">
+                What are the limits for each plan?
+                <svg class="icon" height="24"  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </div>
+
+              <div class="faq_a">
+                Our limits are listed
+                <a href="https://vercel.com/docs/concepts/limits/overview">
+                here
+                </a>
+                Additionally, check out our Fair Use Policy.
+
+              </div>
+            </div>
+            <!--end of third block-->
+
+            <!-- start of the fourth block-->
+            <div class="faq-one_block">
+              <div class="faq_q">
+                I went over my limits. What can I do?
+                <svg class="icon" height="24"  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </div>
+
+              <div class="faq_a">
+                We are glad you are growing and
+                scaling with Vercel! Please
+                <a href="../contacts/contact.html" >contact us</a>
+                to discuss your resource requirements
+                and we can customize a plan for your team.
+
+              </div>
+            </div>
+            <!--end of fourth block-->
+
+
+             <!-- start of the five block-->
+             <div class="faq-one_block">
+              <div class="faq_q">
+                Can I buy additional bandwidth?
+                <svg class="icon" height="24"  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </div>
+
+              <div class="faq_a">
+                Yes! Please reach out and the
+                <a href="../contacts/contact.html">sales team</a>
+                will be happy to assist.
+
+              </div>
+            </div>
+            <!--end of five block-->
+
+
+          </div> <!-- end of faq title-->
+
+
+        </div>
+        <!-- end of faq-->
+
+    </body>
+</html>

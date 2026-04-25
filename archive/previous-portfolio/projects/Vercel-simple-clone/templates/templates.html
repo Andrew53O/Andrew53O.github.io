@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html lang="en" data-bs-theme="dark" >
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <link href="templates_style.css" rel="stylesheet">
+
+        <link href="base_from_fireship.css" rel="stylesheet">
+        <title>Vercel simplified</title>
+        <!-- defer to make wait until page run load-->
+        <script  src="templates_script.js" defer></script>
+    </head>
+    <body>
+
+        <!--Navbar-->
+        <!-- Navbar section-->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="../index.html">
+                <svg viewBox="0 0 283 64" class="footer_vercel_svg_logo">
+                  <path class="footer_vercel_path"d="M37 0l37 64H0L37 0zM159.6 34c0-10.3-7.6-17.5-18.5-17.5s-18.5 7.2-18.5 17.5c0 10.1 8.2 17.5 19.5 17.5 6.2 0 11.8-2.3 15.4-6.5l-6.8-3.9c-2.1 2.1-5.2 3.4-8.6 3.4-5 0-9.3-2.7-10.8-6.8l-.3-.7h28.3c.2-1 .3-2 .3-3zm-28.7-3l.2-.6c1.3-4.3 5.1-6.9 9.9-6.9 4.9 0 8.6 2.6 9.9 6.9l.2.6h-20.2zM267.3 34c0-10.3-7.6-17.5-18.5-17.5s-18.5 7.2-18.5 17.5c0 10.1 8.2 17.5 19.5 17.5 6.2 0 11.8-2.3 15.4-6.5l-6.8-3.9c-2.1 2.1-5.2 3.4-8.6 3.4-5 0-9.3-2.7-10.8-6.8l-.3-.7H267c.2-1 .3-2 .3-3zm-28.7-3l.2-.6c1.3-4.3 5.1-6.9 9.9-6.9 4.9 0 8.6 2.6 9.9 6.9l.2.6h-20.2zM219.3 28.3l6.8-3.9c-3.2-5-8.9-7.8-15.8-7.8-10.9 0-18.5 7.2-18.5 17.5s7.6 17.5 18.5 17.5c6.9 0 12.6-2.8 15.8-7.8l-6.8-3.9c-1.8 3-5 4.7-9 4.7-6.3 0-10.5-4.2-10.5-10.5s4.2-10.5 10.5-10.5c3.9 0 7.2 1.7 9 4.7zM282.3 5.6h-8v45h8v-45zM128.5 5.6h-9.2L101.7 36 84.1 5.6h-9.3L101.7 52l26.8-46.4zM185.1 25.8c.9 0 1.8.1 2.7.3v-8.5c-6.8.2-13.2 4-13.2 8.7v-8.7h-8v33h8V36.3c0-6.2 4.3-10.5 10.5-10.5z"></path>
+               </svg>
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Features
+                    </a>
+                    <ul class="dropdown-menu">
+                      <table>
+                        <tr>
+                          <th>
+                            <div class="dropdown-item">
+                              <a class="fill-div" href="../features/features.html">
+                                <li>Previews</li>
+                                  <p>Zero config, more innovation </p>
+                              </a>
+
+                            </div>
+                          </th>
+                          <th>
+                            <div class="dropdown-item">
+                              <a class="fill-div" href="../features/features.html#go_to_infrastructure">
+                                <li>Infrastructure</li>
+
+                                <p>Always fast, always online</p>
+                              </a>
+                            </div>
+                          </th>
+                        </tr>
+                        <tr>
+                          <th>
+                            <div class="dropdown-item">
+                              <a  class="fill-div" href="../features/features.html#next_js">
+                                <li>Next js</li>
+                                <p>The native Next.js platform</p>
+                              </a>
+
+                            </div>
+                          </th>
+                          <th>
+                            <div class="dropdown-item">
+                              <a class="fill-div" href="../features/features.html#go_to_edge_function">
+                                <li>Edge Functions</li>
+                                <p>Dynamic pages, static speed</p>
+                              </a>
+
+                            </div>
+                          </th>
+                        </tr>
+
+                        <tr>
+                          <th>
+                            <div class="dropdown-item">
+                              <a class="fill-div" href="../features/features.html#analytics">
+                                <li>Analytics</li>
+                                <p>Real-time insights, peak performance</p>
+                              </a>
+
+                            </div>
+                          </th>
+                          <th>
+                            <div class="dropdown-item">
+                              <a class="fill-div" href="../features/features.html#go_to_storage">
+                                <li>Storage</li>
+                                <p>Serverless storage for frontend</p>
+                              </a>
+
+                            </div>
+                          </th>
+                        </tr>
+
+                      </table>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../docs/docs.html">Docs</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="../templates/templates.html">Templates</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="../pricing/pricing.html">Pricing</a>
+                  </li>
+                </ul>
+
+                <a class="nav-link" href="../contacts/contact.html"> Contact</a>
+              </div>
+            </div>
+          </nav> <!-- End of Navbar-->
+
+        <!-- end Navbar-->
+
+        <!-- start of the title_text div-->
+        <div class="body-container">
+            <h1>Find your Template</h1>
+            <p> Jumpstart your app development process with our pre-built solutions. </p>
+
+        </div> <!-- end of title_text div-->
+
+        <!-- start of card templates-->
+        <a href="https://vercel.com/templates/next.js/nextjs-boilerplate">
+          <div class="card-templates">
+            <!-- first card -->
+            <div class="card">
+              <img src="https://vercel.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F29l0UrpsQB6uDlmShjiJ72%2Ff44f1f951062bcefa9959e1985cb61af%2FLightMode_CreateNextApp.png&w=640&q=75&dpl=dpl_4ei8J7UGpYWukyTVTukgz6KYNasG"
+              class="card-img-top" alt="...">
+              <div class="card-body">
+
+                <h5 class="card-title">Next.js Boilerplate</h5>
+                <p class="card-text">Get started with Next.js and React in seconds.</p>
+              </div>
+
+
+            </div>
+
+        </a><!-- end of frist card -->
+
+           <!-- second card -->
+           <a href="https://vercel.com/templates/svelte/sveltekit-boilerplate">
+             <div class="card" >
+              <img src="https://vercel.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F5WIYQtnSEfZKYFB9kvsR0w%2F974bee31f87aa376a54dccdb0713629d%2FCleanShot_2022-05-23_at_22.13.20_2x.png&w=1920&q=75&dpl=dpl_4ei8J7UGpYWukyTVTukgz6KYNasG"
+               class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">SvelteKit Boilerplate</h5>
+                <p class="card-text">A SvelteKit app including nested routes, layouts, and page endpoints.</p>
+              </div>
+
+
+            </div>
+
+           </a><!-- end 2 card-->
+
+
+           <!-- 3 card -->
+           <a href="https://vercel.com/templates/astro/astro-boilerplate">
+             <div class="card" >
+              <img src="https://vercel.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F7s4Lxeg0kZof4ZuZfA7sjV%2F20eac2ba6e52426a62b3c0e4b1dbb412%2FCleanShot_2022-05-23_at_22.09.38_2x.png&w=384&q=75&dpl=dpl_4ei8J7UGpYWukyTVTukgz6KYNasG
+              " class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Astro Boilerplate</h5>
+                <p class="card-text">An Astro site, using the basics starter kit</p>
+              </div>
+
+
+            </div>
+
+           </a> <!-- end 3 card-->
+
+          <!-- 4 card -->
+          <a href="https://vercel.com/templates/next.js/image-gallery-starter">
+            <div class="card" >
+              <img src="https://vercel.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F3PkqiHFN4mAmCpexoBvb2B%2Fe52a778e2b4320220665c73a3b8a498a%2FCleanShot_2022-12-02_at_10.42.14_2x.png&w=384&q=75&dpl=dpl_4ei8J7UGpYWukyTVTukgz6KYNasG
+              " class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Image Gallery Starter</h5>
+                <p class="card-text">An image gallery built on Next.js and Cloudinary.</p>
+              </div>
+
+            </div>
+
+          </a> <!-- end of 4 card -->
+
+           <!-- 5 card -->
+           <a href="https://vercel.com/templates/next.js/nextjs-ai-chatbot">
+             <div class="card" >
+              <img src="https://vercel.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F4aVPvWuTmBvzM5cEdRdqeW%2F3c4de03aebdee5f32dea96845231e2fd%2FCleanShot_2023-06-16_at_17.31.24_2x.png&w=384&q=75&dpl=dpl_4ei8J7UGpYWukyTVTukgz6KYNasG"
+               class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Next.js AI Chatbot</h5>
+                <p class="card-text">A full-featured, hackable Next.js AI chatbot built by Vercel Labs</p>
+              </div>
+
+
+            </div>
+
+           </a><!-- end 5 card-->
+
+           <a href="https://vercel.com/templates/next.js/documentation-starter-kit">
+
+             <!-- 6 card -->
+             <div class="card" >
+              <img src="https://vercel.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F5RZetTd7rd1mQtoZt2fajA%2F747eabb89b6378ecfc0ef433f5e47a01%2FCleanShot_2022-12-02_at_12.07.44.png&w=384&q=75&dpl=dpl_4ei8J7UGpYWukyTVTukgz6KYNasG"\
+               class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Nextra: Docs Starter Kit</h5>
+                <p class="card-text">Simple, powerful and flexible markdown-powered docs site. Built with Next.js.</p>
+
+              </div>
+            </div>
+
+           </a>  <!-- end 6 card-->
+
+
+
+
+          <!-- 7 card -->
+          <a href="https://vercel.com/templates/next.js/admin-dashboard-tailwind-planetscale-react-nextjs">
+            <div class="card" >
+              <img src="https://vercel.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2Ffmmsa0AREAIvMGl9PzGew%2Fe727d84638423db63617b32703040138%2FCleanShot_2023-04-04_at_12.28.34.png&w=384&q=75&dpl=dpl_4ei8J7UGpYWukyTVTukgz6KYNasG"
+               class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Admin Dashboard Template</h5>
+                <p class="card-text">Tailwind CSS, MySQL, and auth set up.</p>
+              </div>
+
+
+            </div> <!-- end 7 card-->
+          </a>
+
+
+          <a href="https://vercel.com/templates/next.js/nextjs-commerce">
+            <!-- 8 card -->
+            <div class="card" >
+              <img src="https://vercel.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F1RzhtOHEvW7xyn9qAsdr5E%2F85331c32482b7d022585c39ddb3ae9f2%2FCleanShot_2023-07-24_at_21.37.15_2x.png&w=384&q=75&dpl=dpl_4ei8J7UGpYWukyTVTukgz6KYNasG"
+               class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Next.js Commerce</h5>
+                <p class="card-text">Starter kit for high-performance commerce with Shopify.</p>
+              </div>
+
+
+            </div> <!-- end of 8 card -->
+
+          </a>
+
+          <a href="https://vercel.com/templates/next.js/app-directory">
+             <!-- 9 card -->
+           <div class="card" >
+            <img src="https://vercel.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2Fk9BYNIi5HwkHop568SjEI%2Fcfb7e8215a11667d32265b34c43b4b5b%2FCleanShot_2022-10-25_at_14.38.59_2x.png&w=384&q=75&dpl=dpl_4ei8J7UGpYWukyTVTukgz6KYNasG"
+             class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Next.js 13 App Playground</h5>
+              <p class="card-text">Explore the new app directory (App Router) in Next.js 13.</p>
+            </div>
+
+
+            </div> <!-- end 9 card-->
+          </a>
+
+
+
+           <!-- 10 card -->
+           <a href="https://vercel.com/templates/next.js/platforms-starter-kit">
+             <div class="card" >
+              <img src="https://vercel.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F40JwjdHlPr0Z575MPYbxUA%2Fd8fd5ff05155a247deff6010774377d3%2FVercel_Platforms.png&w=384&q=75&dpl=dpl_4ei8J7UGpYWukyTVTukgz6KYNasG"
+               class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Platforms Starter Kit</h5>
+                <p class="card-text">Next.js template for building multi-tenant applications with custom domains using App Router, Vercel Postgres, and the Vercel Domains API.</p>
+              </div>
+
+
+            </div> <!-- end 10 card-->
+
+           </a>
+
+        </div> <!-- end of card templates-->
+
+        <div class="find-more-templates">
+
+          <a href="https://vercel.com/templates" class="btn">
+            Find More!
+          </a>
+
+        </div>
+
+    </body>
+</html>

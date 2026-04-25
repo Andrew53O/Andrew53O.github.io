@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html lang="en" data-bs-theme="dark">
+    <head>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <script  src="index_script.js" defer> </script>
+        <title>My Webpage</title>
+    </head>
+    <body>
+        <!-- Navbar section-->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+              <svg viewBox="0 0 283 64" class="footer_vercel_svg_logo">
+                <path class="footer_vercel_path"d="M37 0l37 64H0L37 0zM159.6 34c0-10.3-7.6-17.5-18.5-17.5s-18.5 7.2-18.5 17.5c0 10.1 8.2 17.5 19.5 17.5 6.2 0 11.8-2.3 15.4-6.5l-6.8-3.9c-2.1 2.1-5.2 3.4-8.6 3.4-5 0-9.3-2.7-10.8-6.8l-.3-.7h28.3c.2-1 .3-2 .3-3zm-28.7-3l.2-.6c1.3-4.3 5.1-6.9 9.9-6.9 4.9 0 8.6 2.6 9.9 6.9l.2.6h-20.2zM267.3 34c0-10.3-7.6-17.5-18.5-17.5s-18.5 7.2-18.5 17.5c0 10.1 8.2 17.5 19.5 17.5 6.2 0 11.8-2.3 15.4-6.5l-6.8-3.9c-2.1 2.1-5.2 3.4-8.6 3.4-5 0-9.3-2.7-10.8-6.8l-.3-.7H267c.2-1 .3-2 .3-3zm-28.7-3l.2-.6c1.3-4.3 5.1-6.9 9.9-6.9 4.9 0 8.6 2.6 9.9 6.9l.2.6h-20.2zM219.3 28.3l6.8-3.9c-3.2-5-8.9-7.8-15.8-7.8-10.9 0-18.5 7.2-18.5 17.5s7.6 17.5 18.5 17.5c6.9 0 12.6-2.8 15.8-7.8l-6.8-3.9c-1.8 3-5 4.7-9 4.7-6.3 0-10.5-4.2-10.5-10.5s4.2-10.5 10.5-10.5c3.9 0 7.2 1.7 9 4.7zM282.3 5.6h-8v45h8v-45zM128.5 5.6h-9.2L101.7 36 84.1 5.6h-9.3L101.7 52l26.8-46.4zM185.1 25.8c.9 0 1.8.1 2.7.3v-8.5c-6.8.2-13.2 4-13.2 8.7v-8.7h-8v33h8V36.3c0-6.2 4.3-10.5 10.5-10.5z"></path>
+             </svg>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li id="parent-features" class="nav-item dropdown">
+                  <a id="dropdown_toggle_hover" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Features
+                  </a>
+                  <ul id="table_show_hover" class="dropdown-menu">
+                    <table id="table_keep_hovering">
+                      <tr>
+                        <th>
+                          <div class="dropdown-item">
+                            <a class="fill-div" href="features/features.html">
+                              <li>Previews</li>
+                                <p>Zero config, more innovation </p>
+                            </a>
+
+                          </div>
+                        </th>
+                        <th>
+                          <div class="dropdown-item">
+                            <a class="fill-div" href="features/features.html#go_to_infrastructure">
+                              <li>Infrastructure</li>
+
+                              <p>Always fast, always online</p>
+                            </a>
+                          </div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th>
+                          <div class="dropdown-item">
+                            <a  class="fill-div" href="features/features.html#next_js">
+                              <li>Next js</li>
+                              <p>The native Next.js platform</p>
+                            </a>
+
+                          </div>
+                        </th>
+                        <th>
+                          <div class="dropdown-item">
+                            <a class="fill-div" href="features/features.html#go_to_edge_function">
+                              <li>Edge Functions</li>
+                              <p>Dynamic pages, static speed</p>
+                            </a>
+
+                          </div>
+                        </th>
+                      </tr>
+
+                      <tr>
+                        <th>
+                          <div class="dropdown-item">
+                            <a class="fill-div" href="features/features.html#analytics">
+                              <li>Analytics</li>
+                              <p>Real-time insights, peak performance</p>
+                            </a>
+
+                          </div>
+                        </th>
+                        <th>
+                          <div class="dropdown-item">
+                            <a class="fill-div" href="features/features.html#go_to_storage">
+                              <li>Storage</li>
+                              <p>Serverless storage for frontend</p>
+                            </a>
+
+                          </div>
+                        </th>
+                      </tr>
+
+                    </table>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="docs/docs.html">Docs</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="templates/templates.html">Templates</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="pricing/pricing.html">Pricing</a>
+                </li>
+              </ul>
+
+              <a class="nav-link" href="contacts/contact.html"> Contact</a>
+            </div>
+          </div>
+        </nav> <!-- End of Navbar-->
+        <div class="contents">
+
+          <div class="first-block-content">
+            <div class="big-text">
+              Develop.Preview.Ship.
+            </div>
+
+
+            <div class="vercel-description">
+              Vercel's frontend cloud gives developers the frameworks,
+            workflows, and infrastructure to build a faster, more personalized Web.
+            </div>
+
+            <a class="to-make-button-as-a-link" href="features/features.html">
+              <div class="two-button">
+                <button> Explore Our Key Features </button>
+              </div>
+            </a>
+
+          </div>
+
+          <div class="second-block-content-trusted">
+            <p>TRUSTED BY THE BEST FRONTEND TEAMS</p>
+            <div class="testimonials_for_blur">
+
+              <div class="testimonials_brands">
+                <div class="testimonials_brands_first_copy">
+
+                  <div class="testimonials_brands_first_row">
+                    <div class="testimonial">
+                      <img alt="Adobe Logo" src="https://assets.vercel.com/image/upload/front/home/new/logos/adobe.svg" style="color: transparent;">
+                    </div>
+
+                    <div class="testimonial">
+                      <img alt="Okta Logo" src="https://assets.vercel.com/image/upload/front/home/new/logos/okta.svg" style="color: transparent;">
+                    </div>
+
+                    <div class="testimonial">
+                      <img alt="Under Armour Logo" src="https://assets.vercel.com/image/upload/front/home/new/logos/under-armour.svg" style="color: transparent;">
+                    </div>
+
+                    <div class="testimonial">
+                      <img alt="eBay Logo" src="https://assets.vercel.com/image/upload/front/home/new/logos/ebay.svg" style="color: transparent;">
+                    </div>
+
+                    <div class="testimonial">
+                      <img alt="Zapier Logo" src="https://assets.vercel.com/image/upload/front/home/new/logos/zapier.svg" style="color: transparent;">
+                    </div>
+                  </div>
+
+                  <div class="testimonials_brands_second_row">
+
+                    <div class="testimonial">
+                      <img  alt="Loom Logo" src="https://assets.vercel.com/image/upload/front/home/new/logos/loom.svg" style="color: transparent;">
+                    </div>
+
+                    <div class="testimonial">
+                      <img  alt="HashiCorp Logo" src="https://assets.vercel.com/image/upload/front/home/new/logos/hashicorp.svg" style="color: transparent;">
+                    </div>
+
+                    <div class="testimonial">
+                      <img   alt="Tailwindcss Logo" src="https://assets.vercel.com/image/upload/front/home/new/logos/tailwindcss.svg" style="color: transparent;">
+                    </div>
+
+                    <div class="testimonial">
+                      <img alt="Washington Post Logo" src="https://assets.vercel.com/image/upload/front/home/new/logos/washingtonpost.svg" style="color: transparent;">
+                    </div>
+
+
+                  </div> <!-- ...second_row-->
+
+                </div> <!--first_copy -->
+
+
+
+                <div class="testimonials_brands_second_copy"> <!-- second copy-->
+                  <div class="testimonials_brands_first_row">
+                    <div class="testimonial">
+                      <img alt="Adobe Logo" src="https://assets.vercel.com/image/upload/front/home/new/logos/adobe.svg" style="color: transparent;">
+                    </div>
+
+                    <div class="testimonial">
+                      <img alt="Okta Logo" src="https://assets.vercel.com/image/upload/front/home/new/logos/okta.svg" style="color: transparent;">
+                    </div>
+
+                    <div class="testimonial">
+                      <img alt="Under Armour Logo" src="https://assets.vercel.com/image/upload/front/home/new/logos/under-armour.svg" style="color: transparent;">
+                    </div>
+
+                    <div class="testimonial">
+                      <img alt="eBay Logo" src="https://assets.vercel.com/image/upload/front/home/new/logos/ebay.svg" style="color: transparent;">
+                    </div>
+
+                    <div class="testimonial">
+                      <img alt="Zapier Logo" src="https://assets.vercel.com/image/upload/front/home/new/logos/zapier.svg" style="color: transparent;">
+                    </div>
+                  </div>
+
+                  <div class="testimonials_brands_second_row">
+
+                    <div class="testimonial">
+                      <img  alt="Loom Logo" src="https://assets.vercel.com/image/upload/front/home/new/logos/loom.svg" style="color: transparent;">
+                    </div>
+
+                    <div class="testimonial">
+                      <img  alt="HashiCorp Logo" src="https://assets.vercel.com/image/upload/front/home/new/logos/hashicorp.svg" style="color: transparent;">
+                    </div>
+
+                    <div class="testimonial">
+                      <img   alt="Tailwindcss Logo" src="https://assets.vercel.com/image/upload/front/home/new/logos/tailwindcss.svg" style="color: transparent;">
+                    </div>
+
+                    <div class="testimonial">
+                      <img alt="Washington Post Logo" src="https://assets.vercel.com/image/upload/front/home/new/logos/washingtonpost.svg" style="color: transparent;">
+                    </div>
+
+
+                  </div> <!-- end second_row copy-->
+
+                </div> <!-- second copy-->
+
+              </div> <!-- end testimonial_brand -->
+            </div> <!-- end for blur -->
+
+          </div> <!-- end of second block-->
+
+
+          <div class="third-clock-content-datas">
+
+            <section class="stats_content" >
+              <div class="stats_all">
+
+                <div class="stats_items">
+                  <p class="stats_highlight">
+                    90
+                  </p>
+                  <span class="stats_description">
+                    Cities
+                  </span>
+                </div>
+
+                <div class="stats_items">
+                  <p class="stats_highlight">
+                    41B+
+                  </p>
+                  <span class="stats_description">
+                    Requests Per Week
+                  </span>
+                </div>
+
+                <div class="stats_items">
+                  <p class="stats_highlight">
+                    10PB
+                  </p>
+                  <span class="stats_description">
+                    Data Served
+                  </span>
+                </div>
+
+                <div class="stats_items">
+                  <p class="stats_highlight">
+                    99.99%
+                  </p>
+                  <span class="stats_description">
+                    Guaranteed Uptime
+                  </span>
+                </div>
+
+            </div>
+          </section>
+
+
+          </div> <!-- end of third block-->
+
+          <div class="fourth-block-content-persuasion">
+            <small class="persuasion-text">
+              Begin Your Vercel Journey Now
+            </small>
+
+          </div> <!-- end of fourth-block-->
+        </div>
+
+
+        <!-- footer-->
+
+        <footer class="footer_outest">
+          <nav>
+             <div class="footer_second_outest">
+                <div class="footer_logo">
+                   <a href="#">
+                      <svg viewBox="0 0 283 64" class="footer_vercel_svg_logo">
+                         <path class="footer_vercel_path"d="M37 0l37 64H0L37 0zM159.6 34c0-10.3-7.6-17.5-18.5-17.5s-18.5 7.2-18.5 17.5c0 10.1 8.2 17.5 19.5 17.5 6.2 0 11.8-2.3 15.4-6.5l-6.8-3.9c-2.1 2.1-5.2 3.4-8.6 3.4-5 0-9.3-2.7-10.8-6.8l-.3-.7h28.3c.2-1 .3-2 .3-3zm-28.7-3l.2-.6c1.3-4.3 5.1-6.9 9.9-6.9 4.9 0 8.6 2.6 9.9 6.9l.2.6h-20.2zM267.3 34c0-10.3-7.6-17.5-18.5-17.5s-18.5 7.2-18.5 17.5c0 10.1 8.2 17.5 19.5 17.5 6.2 0 11.8-2.3 15.4-6.5l-6.8-3.9c-2.1 2.1-5.2 3.4-8.6 3.4-5 0-9.3-2.7-10.8-6.8l-.3-.7H267c.2-1 .3-2 .3-3zm-28.7-3l.2-.6c1.3-4.3 5.1-6.9 9.9-6.9 4.9 0 8.6 2.6 9.9 6.9l.2.6h-20.2zM219.3 28.3l6.8-3.9c-3.2-5-8.9-7.8-15.8-7.8-10.9 0-18.5 7.2-18.5 17.5s7.6 17.5 18.5 17.5c6.9 0 12.6-2.8 15.8-7.8l-6.8-3.9c-1.8 3-5 4.7-9 4.7-6.3 0-10.5-4.2-10.5-10.5s4.2-10.5 10.5-10.5c3.9 0 7.2 1.7 9 4.7zM282.3 5.6h-8v45h8v-45zM128.5 5.6h-9.2L101.7 36 84.1 5.6h-9.3L101.7 52l26.8-46.4zM185.1 25.8c.9 0 1.8.1 2.7.3v-8.5c-6.8.2-13.2 4-13.2 8.7v-8.7h-8v33h8V36.3c0-6.2 4.3-10.5 10.5-10.5z"></path>
+                      </svg>
+                   </a>
+                </div>
+                <div class="stack_vertically">
+                   <input class="footer_hidden" id="hidden_input" type="checkbox">
+                   <label for="hidden_input">
+                      <h2 class="footer_header">Product</h2>
+                   </label>
+                   <ul class="footer_list">
+                      <li class="footer_item nav-item "><a class="footer_link nav-link " href="https://vercel.com/features/infrastructure">Infrastructure</a></li>
+                      <li class="footer_item nav-item "><a class="footer_link nav-link" href="https://vercel.com/features//features/previews">Previews</a></li>
+                      <li class="footer_item nav-item "><a class="footer_link nav-link" href="https://vercel.com/features/edge-functions">Edge Functions</a></li>
+                      <li class="footer_item nav-item "><a class="footer_link nav-link" href="https://vercel.com/analytics">Analytics</a></li>
+                      <li class="footer_item nav-item "><a class="footer_link nav-link " href="https://vercel.com/solutions/nextjs">Next.js</a></li>
+                      <li class="footer_item nav-item"><a class="footer_link nav-link" href="https://vercel.com/solutions/turborepo">Turbo</a></li>
+                      <li class="footer_item nav-item"><a class="footer_link nav-link" href="https://vercel.com/enterprise">Enterprise</a></li>
+                      <li class="footer_item nav-item"><a class="footer_link nav-link" href="https://vercel.com/docs/rest-api">CLI &amp; API</a></li>
+                      <li class="footer_item nav-item"><a class="footer_link nav-link" href="https://vercel.com/changelog">Changelog</a></li>
+                   </ul>
+                </div>
+                <div class="stack_vertically">
+                   <input class="footer_hidden" id="hidden_input" type="checkbox">
+                   <label for="hidden_input">
+                      <h2 class="footer_header">Explore</h2>
+                   </label>
+                   <ul class="footer_list">
+                      <li class="footer_item nav-item"><a class="footer_link nav-link" href="https://vercel.com/docs">Docs</a></li>
+                      <li class="footer_item nav-item"><a class="footer_link nav-link" href="https://vercel.com/pricing">Pricing</a></li>
+                      <li class="footer_item nav-item"><a class="footer_link nav-link" href="https://vercel.com/customers">Customers</a></li>
+                      <li class="footer_item nav-item"><a class="footer_link nav-link" href="https://vercel.com/integrations">Integrations</a></li>
+                      <li class="footer_item nav-item"><a class="footer_link nav-link" href="https://vercel.com/templates">Templates</a></li>
+                      <li class="footer_item nav-item"><a class="footer_link nav-link" href="https://vercel.com/resources">Resources</a></li>
+                      <li class="footer_item nav-item"><a class="footer_link nav-link" href="https://vercel.com/experts">Experts</a></li>
+                      <li class="footer_item nav-item"><a class="footer_link nav-link" href="https://vercel.com/guides">Guides</a></li>
+                      <li class="footer_item nav-item"><a class="footer_link nav-link" href="https://vercel.com/help">Help</a></li>
+                      <li class="footer_item nav-item"><a class="footer_link nav-link" href="https://vercel.com/help">⌘K</a></li>
+                   </ul>
+                </div>
+                <div class="stack_vertically">
+                   <input class="footer_hidden" id="footer_input_company" type="checkbox">
+                   <label for="footer_input_company:">
+                      <h2 class="footer_header">Company</h2>
+                   </label>
+                   <ul class="footer_list">
+                      <li class="footer_item nav-item "><a class="footer_link nav-link" href="https://vercel.com/about">About</a></li>
+                      <li class="footer_item nav-item"><a class="footer_link nav-link" href="https://vercel.com/blog">Blog</a></li>
+                      <li class="footer_item nav-item"><a class="footer_link nav-link" href="https://vercel.com/careers">Careers</a></li>
+                      <li class="footer_item nav-item"><a class="footer_link nav-link" href="https://vercel.com/contact">Contact Us</a></li>
+                      <li class="footer_item nav-item">
+                         <a href="https://nextjs.org/conf" rel="noopener" target="_blank" class="footer_link nav-link">
+                            Next.js Conf
+                            <svg class="link_externalIcon__uwKVa" data-testid="geist-icon" fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" style="color:currentColor;width:1em;height:1em">
+                               <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                               <path d="M15 3h6v6"></path>
+                               <path d="M10 14L21 3"></path>
+                            </svg>
+                         </a>
+                      </li>
+                      <li class="footer_item nav-item"><a class="footer_link nav-link" href="https://vercel.com/oss">Open Source</a></li>
+                      <li class="footer_item nav-item"><a class="footer_link nav-link" href="https://vercel.com/partners">Partners</a></li>
+                      <li class="footer_item nav-item"><a class="footer_link nav-link" href="https://vercel.com/security">Security</a></li>
+                      <li class="footer_item nav-item"><a class="footer_link nav-link" href="https://vercel.com/legal/privacy-policy">Privacy Policy</a></li>
+                   </ul>
+                </div>
+             </div>
+          </nav>
+
+          <section>
+             <div class="ending stack_vertically">
+                <span class="footer_copyright">
+
+                     © <!-- -->2023<!-- --> <!-- -->Andrew Suryadarma Hendry 洪理川<!-- -->
+
+
+               </span>
+                <div class="footer_contact">
+                   <span class="footer_medsos">
+                      <ul class="footer_social">
+                         <li>
+                            <a class="footer_icon" href="https://github.com/Andrew53O" rel="noopener" target="_blank">
+                               <svg aria-label="github" height="19" viewBox="0 0 14 14" width="19">
+                                  <path d="M7 .175c-3.872 0-7 3.128-7 7 0 3.084 2.013 5.71 4.79 6.65.35.066.482-.153.482-.328v-1.181c-1.947.415-2.363-.941-2.363-.941-.328-.81-.787-1.028-.787-1.028-.634-.438.044-.416.044-.416.7.044 1.071.722 1.071.722.635 1.072 1.641.766 2.035.59.066-.459.24-.765.437-.94-1.553-.175-3.193-.787-3.193-3.456 0-.766.262-1.378.721-1.881-.065-.175-.306-.897.066-1.86 0 0 .59-.197 1.925.722a6.754 6.754 0 0 1 1.75-.24c.59 0 1.203.087 1.75.24 1.335-.897 1.925-.722 1.925-.722.372.963.131 1.685.066 1.86.46.48.722 1.115.722 1.88 0 2.691-1.641 3.282-3.194 3.457.24.219.481.634.481 1.29v1.926c0 .197.131.415.481.328C11.988 12.884 14 10.259 14 7.175c0-3.872-3.128-7-7-7z" fill="CurrentColor" fill-rule="nonzero"></path>
+                               </svg>
+                            </a>
+                         </li>
+                         <li>
+                            <a class="footer_icon" href="https://twitter.com/vercel" rel="noopener" target="_blank">
+                               <svg aria-label="twitter" fill="currentColor" height="16" viewBox="0 0 18 15">
+                                  <path d="M18 1.684l-1.687 1.684v.28c0 .307-.05.602-.123.886-.04 2.316-.777 5.387-3.816 7.81C6.404 17.115 0 12.907 0 12.907c5.063 0 5.063-1.684 5.063-1.684-1.126 0-3.376-2.243-3.376-2.243.563.56 1.689 0 1.689 0C.56 7.295.56 5.61.56 5.61c.563.561 1.689 0 1.689 0C-.563 3.368 1.124.561 1.124.561 1.687 3.368 9 4.49 9 4.49l.093-.046A6.637 6.637 0 0 1 9 3.368C9 1.353 10.636 0 12.656 0c1.112 0 2.094.506 2.765 1.286l.329-.163L17.437 0l-1.122 2.245L18 1.684z" fill-rule="nonzero"></path>
+                               </svg>
+                            </a>
+                         </li>
+                      </ul>
+                    </span>
+                </div>
+             </div>
+          </section>
+       </footer>
+        </body>
+</html>
