@@ -8,6 +8,7 @@ dist/
 # environment files
 .env
 .env.production
+rollcalls_*.xlsx
 
 # macOS-specific files
 .DS_Store

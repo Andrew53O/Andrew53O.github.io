@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GEAE2347 Attendance</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Arial, "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      background: #f8faf7;
+      color: #202124;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(248, 250, 247, 0.96)),
+        #f8faf7;
+    }
+
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 44px 0 56px;
+    }
+
+    .hero {
+      display: grid;
+      justify-items: center;
+      gap: 16px;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 6vw, 4rem);
+      letter-spacing: 0;
+      line-height: 1.08;
+    }
+
+    .course {
+      margin: 0;
+      max-width: 760px;
+      color: #59615b;
+      line-height: 1.6;
+    }
+
+    .search-panel {
+      width: min(680px, 100%);
+      display: grid;
+      gap: 10px;
+    }
+
+    label {
+      font-weight: 700;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    input {
+      min-width: 0;
+      flex: 1;
+      border: 1px solid #b8c2ba;
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 1rem;
+      background: #ffffff;
+      color: #202124;
+    }
+
+    button {
+      border: 0;
+      border-radius: 8px;
+      padding: 0 18px;
+      font-weight: 700;
+      background: #276749;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    button:hover,
+    button:focus-visible {
+      background: #1f5139;
+    }
+
+    .message {
+      min-height: 1.5em;
+      margin: 0;
+      color: #8a4b12;
+      font-size: 0.95rem;
+    }
+
+    .result {
+      display: none;
+      margin: 28px 0;
+      padding: 20px;
+      border: 1px solid #d6ded8;
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .result.visible {
+      display: block;
+    }
+
+    .result-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .result h2,
+    .table-section h2 {
+      margin: 0;
+      font-size: 1.25rem;
+      letter-spacing: 0;
+    }
+
+    .summary {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      color: #4b5563;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 10px;
+    }
+
+    .status-card {
+      border: 1px solid #e1e7e3;
+      border-radius: 8px;
+      padding: 12px;
+      background: #fbfcfb;
+    }
+
+    .status-date {
+      display: block;
+      color: #5f6368;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+
+    .table-section {
+      display: grid;
+      gap: 14px;
+    }
+
+    .table-note {
+      margin: 0;
+      color: #59615b;
+      line-height: 1.5;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid #d6ded8;
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    table {
+      width: 100%;
+      min-width: 920px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 11px 12px;
+      border-bottom: 1px solid #e7ece8;
+      text-align: left;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      background: #eef4ef;
+      z-index: 1;
+      font-size: 0.92rem;
+    }
+
+    th:first-child,
+    td:first-child {
+      position: sticky;
+      left: 0;
+      background: inherit;
+      z-index: 2;
+      font-weight: 700;
+    }
+
+    th:first-child {
+      background: #eef4ef;
+      z-index: 3;
+    }
+
+    tr:nth-child(even) td {
+      background: #fbfcfb;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      border: 1px solid transparent;
+    }
+
+    .present {
+      color: #17633a;
+      background: #e7f6ed;
+      border-color: #bfe5cc;
+    }
+
+    .late {
+      color: #8a4b12;
+      background: #fff2d7;
+      border-color: #f3d28c;
+    }
+
+    .absent {
+      color: #a82020;
+      background: #fee7e7;
+      border-color: #f6b9b9;
+    }
+
+    .leave {
+      color: #244f8f;
+      background: #e7f0ff;
+      border-color: #bfd2f5;
+    }
+
+    .unknown {
+      color: #5f6368;
+      background: #f0f2f1;
+      border-color: #d9ddda;
+    }
+
+    @media (max-width: 620px) {
+      main {
+        width: min(100% - 20px, 1180px);
+        padding-top: 28px;
+      }
+
+      .search-row {
+        display: grid;
+      }
+
+      button {
+        min-height: 48px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <h1 id="page-title">GEAE2347 Attendance</h1>
+      <p class="course">通識講座：全民運動與永續健康 / Lectureship on General Education: Sport for All and Sustainable Health</p>
+      <div class="search-panel">
+        <label for="student-search">查詢出席紀錄 / Search attendance record</label>
+        <div class="search-row">
+          <input id="student-search" list="student-options" autocomplete="off" placeholder="輸入你的學號 / Fill your Student ID">
+          <datalist id="student-options"></datalist>
+          <button id="search-button" type="button">查詢 / Search</button>
+        </div>
+        <p id="message" class="message" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="result" class="result" aria-live="polite"></section>
+
+    <section class="table-section" aria-labelledby="table-title">
+      <h2 id="table-title">全部出席紀錄 / All attendance records</h2>
+      <p class="table-note">此頁只顯示學號與出席狀態，不公開姓名。/ This page shows only student IDs and attendance statuses.</p>
+      <div class="table-wrap">
+        <table id="attendance-table"></table>
+      </div>
+    </section>
+  </main>
+
+  <script src="attendance-data.js"></script>
+  <script>
+    const data = window.GEAE2347_ATTENDANCE_DATA || { dates: [], students: [] };
+    const searchInput = document.querySelector("#student-search");
+    const searchButton = document.querySelector("#search-button");
+    const options = document.querySelector("#student-options");
+    const message = document.querySelector("#message");
+    const result = document.querySelector("#result");
+    const table = document.querySelector("#attendance-table");
+
+    const labels = {
+      present: "出席 / Present",
+      late: "遲到 / Late",
+      absent: "缺席 / Absent",
+      leave: "請假 / Leave",
+      unknown: "未記錄 / No record"
+    };
+
+    function statusType(value) {
+      const normalized = String(value || "").trim().toLowerCase();
+      if (!normalized) return "unknown";
+      if (normalized.includes("late")) return "late";
+      if (normalized.includes("absent")) return "absent";
+      if (normalized.includes("leave")) return "leave";
+      if (normalized === "present") return "present";
+      return "unknown";
+    }
+
+    function statusLabel(value) {
+      return labels[statusType(value)];
+    }
+
+    function statusPill(value) {
+      const type = statusType(value);
+      return `<span class="pill ${type}">${statusLabel(value)}</span>`;
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function renderOptions() {
+      options.innerHTML = data.students
+        .map((student) => `<option value="${escapeHtml(student.id)}"></option>`)
+        .join("");
+    }
+
+    function renderTable() {
+      const head = [
+        "<thead><tr><th>學號 / Student ID</th>",
+        ...data.dates.map((date) => `<th>${escapeHtml(date)}</th>`),
+        "</tr></thead>"
+      ].join("");
+
+      const body = data.students
+        .map((student) => {
+          const cells = student.records
+            .map((record) => `<td>${statusPill(record)}</td>`)
+            .join("");
+          return `<tr><td>${escapeHtml(student.id)}</td>${cells}</tr>`;
+        })
+        .join("");
+
+      table.innerHTML = `${head}<tbody>${body}</tbody>`;
+    }
+
+    function renderStudent(student) {
+      const counts = student.records.reduce((total, record) => {
+        const type = statusType(record);
+        total[type] = (total[type] || 0) + 1;
+        return total;
+      }, {});
+
+      const cards = data.dates
+        .map((date, index) => `
+          <div class="status-card">
+            <span class="status-date">${escapeHtml(date)}</span>
+            ${statusPill(student.records[index])}
+          </div>
+        `)
+        .join("");
+
+      result.classList.add("visible");
+      result.innerHTML = `
+        <div class="result-header">
+          <h2>${escapeHtml(student.id)}</h2>
+          <div class="summary">
+            <span>${labels.present}: ${counts.present || 0}</span>
+            <span>${labels.late}: ${counts.late || 0}</span>
+            <span>${labels.leave}: ${counts.leave || 0}</span>
+            <span>${labels.absent}: ${counts.absent || 0}</span>
+          </div>
+        </div>
+        <div class="status-grid">${cards}</div>
+      `;
+    }
+
+    function findStudent(query) {
+      const normalized = query.trim().toUpperCase();
+      return data.students.find((student) => student.id.toUpperCase() === normalized);
+    }
+
+    function handleSearch() {
+      const query = searchInput.value;
+      const student = findStudent(query);
+      if (!query.trim()) {
+        message.textContent = "請輸入學號。/ Please enter your student ID.";
+        result.classList.remove("visible");
+        result.innerHTML = "";
+        return;
+      }
+      if (!student) {
+        message.textContent = "找不到此學號。/ Student ID not found.";
+        result.classList.remove("visible");
+        result.innerHTML = "";
+        return;
+      }
+
+      message.textContent = "";
+      renderStudent(student);
+    }
+
+    searchInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        handleSearch();
+      }
+    });
+    searchInput.addEventListener("change", handleSearch);
+    searchButton.addEventListener("click", handleSearch);
+
+    renderOptions();
+    renderTable();
+  </script>
+</body>
+</html>
